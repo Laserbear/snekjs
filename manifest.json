@@ -14,7 +14,7 @@
     "matches": [
       "http://slither.io/"
     ],
-    "js": ["content.js","all.js"]
+    "js": ["content.js","all.js", "rl.js"]
   }
 ],
   "permissions": [
