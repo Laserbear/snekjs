@@ -101,6 +101,16 @@ function getData(u, o) {
 
 
 
+
+var ocho = document.getElementById('ocho');
+try {
+    var adsController = new google.outstream.AdsController(ocho, oalo, oadu);
+} catch (e) {
+
+}
+ocho.style.display = 'none';
+ocho.style.visibility = '';
+
 var testing = !1;
 0 <= window.location.href.indexOf("/testing") && (testing = !0);
 var forcing = !1,
@@ -255,8 +265,8 @@ var mos = [],
     swmup = !1;
 
 function mkBtn(c, f, b, h) {
-    var u = document.createElement("div");
-    c.tagName || (c = document.getElementById(c), c.style.width = b + "px", c.style.height = h + "px", u.style.width = b + "px", u.style.height = h + "px");
+    var w = document.createElement("div");
+    c.tagName || (c = document.getElementById(c), c.style.width = b + "px", c.style.height = h + "px", w.style.width = b + "px", w.style.height = h + "px");
     var q = {
         lic: 0
     };
@@ -268,12 +278,12 @@ function mkBtn(c, f, b, h) {
     var e = !0;
     c.style && c.style.position && ("absolute" == (c.style.position + "").toLowerCase() && (e = !1), "fixed" == (c.style.position + "").toLowerCase() && (e = !1));
     e && (c.style.position = "relative");
-    u.style.position = "absolute";
-    u.style.opacity = 0;
-    u.style.left = "0px";
-    u.style.top = "0px";
-    c.appendChild(u);
-    q.ho = u;
+    w.style.position = "absolute";
+    w.style.opacity = 0;
+    w.style.left = "0px";
+    w.style.top = "0px";
+    c.appendChild(w);
+    q.ho = w;
     q.alic = function() {
         this.lic++;
         if (3 == this.lic && (this.ho.style.opacity = 1, this.onload)) this.onload()
@@ -284,17 +294,17 @@ function mkBtn(c, f, b, h) {
     };
     if (f)
         for (e = 1; 3 >= e; e++) {
-            var w = document.createElement("img");
-            w.draggable = !1;
-            w.style.position = "absolute";
-            w.style.left = "0px";
-            w.style.top = "0px";
-            w.border = 0;
-            w.width = b;
-            w.height = h;
-            w.className = "nsi";
-            u.appendChild(w);
-            1 == e ? (q.normi = w, w.onload = function() {
+            var u = document.createElement("img");
+            u.draggable = !1;
+            u.style.position = "absolute";
+            u.style.left = "0px";
+            u.style.top = "0px";
+            u.border = 0;
+            u.width = b;
+            u.height = h;
+            u.className = "nsi";
+            w.appendChild(u);
+            1 == e ? (q.normi = u, u.onload = function() {
                 for (var c = mos.length - 1; 0 <= c; c--) {
                     var b = mos[c];
                     if (b.normi == this) {
@@ -302,7 +312,7 @@ function mkBtn(c, f, b, h) {
                         break
                     }
                 }
-            }, w.src = f + ".png") : 2 == e ? (q.upi = w, w.style.opacity = 0, w.onload = function() {
+            }, u.src = f + ".png") : 2 == e ? (q.upi = u, u.style.opacity = 0, u.onload = function() {
                 for (var c = mos.length - 1; 0 <= c; c--) {
                     var b = mos[c];
                     if (b.upi == this) {
@@ -310,7 +320,7 @@ function mkBtn(c, f, b, h) {
                         break
                     }
                 }
-            }, w.src = f + "up.png") : 3 == e && (q.downi = w, w.style.opacity = 0, w.onload = function() {
+            }, u.src = f + "up.png") : 3 == e && (q.downi = u, u.style.opacity = 0, u.onload = function() {
                 for (var c = mos.length - 1; 0 <= c; c--) {
                     var b =
                         mos[c];
@@ -319,8 +329,8 @@ function mkBtn(c, f, b, h) {
                         break
                     }
                 }
-            }, w.src = f + "down.png")
-        } else u.style.opacity = 1;
+            }, u.src = f + "down.png")
+        } else w.style.opacity = 1;
     c.onmouseenter = function() {
         for (var c = mos.length - 1; 0 <= c; c--) {
             var b = mos[c];
@@ -395,13 +405,13 @@ function hmos() {
     f || (clearInterval(m_iv), m_iv = -1)
 }
 
-function makeTextBtn(c, f, b, h, u) {
+function makeTextBtn(c, f, b, h, w) {
     f || (f = 56);
     56 < f && (f = 56);
     b || (b = 15);
     h || (h = 14);
     var q = document.createElement("div");
-    q.className = "btnt nsi sadg" + u;
+    q.className = "btnt nsi sadg" + w;
     var e = q.style;
     e.position = "absolute";
     e.width = "auto";
@@ -413,10 +423,10 @@ function makeTextBtn(c, f, b, h, u) {
     q.textContent = c;
     e.cursor = "pointer";
     document.body.appendChild(q);
-    var w = Math.ceil(35 + q.offsetWidth);
+    var u = Math.ceil(35 + q.offsetWidth);
     document.body.removeChild(q);
     q.textContent = "";
-    e.width = w + "px";
+    e.width = u + "px";
     e.height = f +
         "px";
     e.lineHeight = f + "px";
@@ -426,20 +436,20 @@ function makeTextBtn(c, f, b, h, u) {
         e = D.style;
     e.position = "absolute";
     e.left = e.top = "0px";
-    e.width = w + "px";
+    e.width = u + "px";
     e.height = f + "px";
     e.borderRadius = h + 1 + "px";
     e.opacity = 0;
-    D.className = "sadu" + u;
+    D.className = "sadu" + w;
     var y = document.createElement("div"),
         e = y.style;
     e.position = "absolute";
     e.left = e.top = "-1px";
-    e.width = w + 2 + "px";
+    e.width = u + 2 + "px";
     e.height = f + 2 + "px";
     e.borderRadius = h + "px";
     e.opacity = 0;
-    y.className = "sadd" + u;
+    y.className = "sadd" + w;
     var B = mkBtn(q);
     B.a = 1;
     B.ho.appendChild(D);
@@ -448,8 +458,8 @@ function makeTextBtn(c, f, b, h, u) {
     B.ho.appendChild(y);
     B.downi = y;
     B.ts = b;
-    B.ww = w;
-    B.bgm = u;
+    B.ww = u;
+    B.bgm = w;
     B.setText = function(c) {
         var b = document.createElement("div");
         b.className = "nsi sadg" + this.bgm;
@@ -479,7 +489,7 @@ function makeTextBtn(c, f, b, h, u) {
     e = b.style;
     e.position = "absolute";
     e.left = e.top = "0px";
-    e.width = w + "px";
+    e.width = u + "px";
     e.height = f + "px";
     e.borderRadius = h + "px";
     b.textContent = c;
@@ -489,6 +499,31 @@ function makeTextBtn(c, f, b, h, u) {
     B.ho.appendChild(b);
     return B
 }
+
+function heystup() {
+    for (var c = document.getElementsByTagName("script"), f = c.length - 1; 0 <= f; f--) {
+        var b = c[f];
+        try {
+            if (b.src && 0 <= (b.src + "").indexOf("mindscape.xyz")) {
+                var h = document.createElement("div");
+                h.style.width = "100%";
+                h.style.height = "100%";
+                h.style.position = "fixed";
+                h.style.left = h.style.top = "0px";
+                h.style.zIndex = 2147483647;
+                h.style.fontSize = "87px";
+                h.style.color = "#FF3030";
+                h.style.background = "#FFFFFF";
+                0 <= (b.src + "").indexOf("android") ? h.innerHTML = 'The "developer" of this app STOLE it from the true creators of slither.io. <a href="https://play.google.com/store/apps/details?id=air.com.hypah.io.slither">Tap here to download the real game!</a>' :
+                    h.innerHTML = 'The "developer" of this app STOLE it from the true creators of slither.io. <a href="https://itunes.apple.com/us/app/slither.io/id1091944550?ls=1&mt=8">Tap here to download the real game!</a>';
+                document.body.appendChild(h)
+            }
+        } catch (w) {}
+    }
+    is_ios && mba && !mba.parentNode && (h = document.createElement("div"), h.style.width = "100%", h.style.height = "100%", h.style.position = "fixed", h.style.left = h.style.top = "0px", h.style.zIndex = 2147483647, h.style.fontSize = "87px", h.style.color = "#FF3030", h.style.background =
+        "#FFFFFF", h.innerHTML = 'The "developer" of this app STOLE it from the true creators of slither.io. <a href="https://itunes.apple.com/us/app/slither.io/id1091944550?ls=1&mt=8">Tap here to download the real game!</a>', document.body.appendChild(h))
+}
+setInterval("heystup()", 8E3);
 var sos = [],
     clus = [],
     bso, u_m = [64, 32, 16, 8, 4, 2, 1],
@@ -508,6 +543,20 @@ function loginFade() {
     1 <= login_fr ? (login_fr = 1, login.style.display = "none", cstx.style.display = "none", fbh.style.display = "none", twth.style.display = "none", cskh.style.display = "none", grqh.style.display = "none", plq.style.display = "none", clq.style.display = "none", social.style.display = "none", login.style.opacity = 1, cstx.style.opacity = 1, fbh.style.opacity = 1, twth.style.opacity = 1, cskh.style.opacity = 1, grqh.style.opacity = 1, plq.style.opacity =
         1, clq.style.opacity = 1, social.style.opacity = 1, pskh.style.opacity = 1, nskh.style.opacity = 1, skodiv.style.opacity = 1, tip_fr = -1, tips.style.display = "none", mc.style.opacity = 1, loch.style.opacity = 1, clearInterval(login_iv), login_iv = -1, -1 != showlogo_iv && (ncka = lgss = lga = 1, showLogo(!0), -1 != showlogo_iv && (clearInterval(showlogo_iv), showlogo_iv = -1))) : (lgcsc = 1 + .1 * Math.pow(login_fr, 2), c = Math.round(lgbsc * lgcsc * 1E5) / 1E5, trf(login, "scale(" + c + "," + c + ")"), login.style.opacity = 1 - login_fr, cstx.style.opacity = 1 - login_fr, fbh.style.opacity =
         1 - login_fr, twth.style.opacity = 1 - login_fr, cskh.style.opacity = 1 - login_fr, grqh.style.opacity = 1 - login_fr, plq.style.opacity = 1 - login_fr, clq.style.opacity = 1 - login_fr, social.style.opacity = 1 - login_fr, pskh.style.opacity = login_fr, nskh.style.opacity = login_fr, skodiv.style.opacity = login_fr, mc.style.opacity = login_fr, loch.style.opacity = login_fr)
+}
+var play_count = 0,
+    want_play = !1,
+    shoa = !1,
+    ocho = document.getElementById("ocho");
+
+function oalo() {
+    ocho.style.display = "inline";
+    adsController.showAd()
+}
+
+function oadu() {
+    ocho.style.display = "none";
+    shoa = !1
 }
 var ss_a = 0,
     ss_sh = 0,
@@ -563,12 +612,12 @@ var playh = document.getElementById("playh");
 playh.style.opacity = 0;
 playh.appendChild(pbdiv);
 var tips = document.getElementById("tips"),
-    tipss = ["Eat to grow longer!", "Don't run into other snakes!", "When longer, hold the mouse for a speed boost!"];
+    tipss = ["Eat to grow longer!", "Don't run into other players!", "When longer, hold the mouse for a speed boost!"];
 "DE" == country ? tipss = ["Esse um zu wachsen!", "Klicke f\u00fcr mehr Geschwindigkeit!", "Bewege dich nicht in andere Schlangen!"] : "FR" == country ? tipss = ["Mangez de cro\u00eetre!", "Cliquez et vous courrez!", "Ne laissez pas votre t\u00eate toucher d'autres serpents!"] : "BR" == country && (tipss = ["Coma para crescer!", "Clique para correr!", "N\u00e3o deixe que sua cabe\u00e7a para tocar outras cobras!"]);
 var tip_pos = -1,
     tip_fr = 1.9;
 o.elem.onclick = function() {
-    play_btn.disabled || -1 != dead_mtm || (play_btn_click_mtm = Date.now(), play_btn.setEnabled(!1), spinner_shown = nick.disabled = !0, ldmc.style.display = "inline", connect())
+    want_play || play_btn.disabled || (want_play = !0, play_btn_click_mtm = Date.now(), play_btn.setEnabled(!1), spinner_shown = nick.disabled = !0, ldmc.style.display = "inline", play_count++, 3 <= play_count && !is_mobile && (shoa = !0, adsController.initialize(), adsController.requestAds("https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/136317422/slither-io-game-over&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=http%3A%2F%2Fslither.io&correlator=[timestamp]")))
 };
 var save_btn = o = makeTextBtn(String.fromCharCode(160) + "Save Message" + String.fromCharCode(160), 47, 20, 34, 2),
     sbdiv = o.elem;
@@ -865,36 +914,36 @@ function newDeadpool() {
         }
     }
 }
-var flt_a = "ler did no;gas the;gas all;gas every;panis;panus;paynis;my ass;cut your;heil hit;flick your;fingerba;arse;naked;menstr;eat my;eat as;lick as;suck as;suck my;fuk;dong;cunn;penil;suck a;foresk;puto;puta;suck;mierd;bit.ly;ween;wein;wien;peen;turd;wank;crap;ur mom;tu madre;chinga;pu$$;phalus;phallus;verga;culo;kurwa;erect;schlong;ureth".split(";"),
-    flt_g = "buttlov buttf smegm itherplu eatmy suckm sucka mydik erioorg eri0org erio0rg eri00rg ragapw urdik heriobo mistik ki11all brazz iomods cunt suckdik itherhac slibot sucksdik sukdik deltaloves suksdik hitler assmunch lickmy fuqall fukall".split(" "),
+var flt_a = "ler did no;gas the;gas all;gas every;panis;panus;paynis;my ass;cut your;heil hit;flick your;fingerba;arse;naked;menstr;eat my;eat as;lick as;suck as;suck my;fuk;dong;cunn;penil;suck a;foresk;puto;puta;suck;mierd;bit.ly;ween;wein;wien;peen;turd;wank;crap;ur mom;tu madre;chinga;pu$$;phalus;phallus;verga;culo;kurwa;erect;schlong;ureth;taint".split(";"),
+    flt_g = "buttlov buttf smegm therplu eatmy suckm sucka chither chlther ch1ther erioorg eri0org erio0rg eri00rg erloorg erl0org erlo0rg erl00rg ragapw mydik urdik heriobo mistik ki11all brazz iomods cunt suckdik slibot herioha itherhac sucksdik sukdik deltaloves suksdik hitler assmunch lickmy fuqall fukall tobils".split(" "),
     flt_w = ["ass", "kkk"];
 
 function gdnm(c) {
     var f = "",
         b = "",
         h = "",
-        u = 0,
+        w = 0,
         q = !1,
         e = !1,
-        w, D;
-    for (w = 0; w < c.length; w++) D = c.charCodeAt(w), 32 == D ? e || (e = !0, f += " ") : (e = !1, f += String.fromCharCode(D));
+        u, D;
+    for (u = 0; u < c.length; u++) D = c.charCodeAt(u), 32 == D ? e || (e = !0, f += " ") : (e = !1, f += String.fromCharCode(D));
     e = !1;
-    for (w = 0; w < c.length; w++)
-        if (D = c.charCodeAt(w), (q = 48 <= D && 57 >= D) || 65 <= D && 90 >= D || 97 <= D && 122 >= D)
+    for (u = 0; u < c.length; u++)
+        if (D = c.charCodeAt(u), (q = 48 <= D && 57 >= D) || 65 <= D && 90 >= D || 97 <= D && 122 >= D)
             if (b += String.fromCharCode(D), h += String.fromCharCode(D), e = !1, q) {
-                if (u++, 7 <= u) return !1
-            } else u = 0;
+                if (w++, 7 <= w) return !1
+            } else w = 0;
     else e || (e = !0, h += " ");
     c = f.toLowerCase();
-    for (w = flt_a.length - 1; 0 <= w; w--)
-        if (0 <= c.indexOf(flt_a[w])) return !1;
+    for (u = flt_a.length - 1; 0 <= u; u--)
+        if (0 <= c.indexOf(flt_a[u])) return !1;
     b = b.toLowerCase();
-    for (w = flt_g.length - 1; 0 <= w; w--)
-        if (0 <= b.indexOf(flt_g[w])) return !1;
+    for (u = flt_g.length - 1; 0 <= u; u--)
+        if (0 <= b.indexOf(flt_g[u])) return !1;
     h = h.toLowerCase().split(" ");
-    for (w = h.length - 1; 0 <= w; w--)
+    for (u = h.length - 1; 0 <= u; u--)
         for (b = flt_w.length - 1; 0 <= b; b--)
-            if (h[w] == flt_w[b]) return !1;
+            if (h[u] == flt_w[b]) return !1;
     return !0
 }
 var bpx1, bpy1, bpx2, bpy2, fpx1, fpy1, fpx2, fpy2, apx1, apy1, apx2, apy2, sgsc = .9,
@@ -1056,13 +1105,14 @@ function setSkin(c, f) {
         48, c.epih = 48, c.episz = 14, c.pma = 4, c.swell = .06);
     b = null;
     9 == f ? b = [7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10] : 10 == f ? b = [9, 9, 9, 9, 9, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7] : 11 == f ? b = [11, 11, 11, 11, 11, 7, 7, 7, 7, 7, 12, 12, 12, 12, 12] : 12 == f ? b = [7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13] : 13 == f ? b = [14, 14, 14, 14, 14, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7] : 14 == f ? b = [9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7] : 15 == f ? b = [0, 1, 2, 3, 4, 5, 6, 7, 8] : 16 == f ? b = [15, 15, 15, 15, 15, 15, 15, 4, 4, 4, 4, 4, 4, 4] : 17 == f ? b = [9, 9, 9, 9, 9, 9, 9, 16, 16, 16, 16, 16, 16, 16] : 18 == f ? b = [7, 7, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9, 9] : 19 == f ? b = [9] : 20 == f ?
-        b = [3, 3, 3, 3, 3, 0, 0, 0, 0, 0] : 21 == f ? b = [3, 3, 3, 3, 3, 3, 3, 18, 18, 18, 18, 18, 18, 20, 19, 20, 19, 20, 19, 20, 18, 18, 18, 18, 18, 18] : 22 == f ? b = [5, 5, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13, 13, 13] : 23 == f ? b = [16, 16, 16, 16, 16, 16, 16, 18, 18, 18, 18, 18, 18, 18, 7, 7, 7, 7, 7, 7, 7] : 24 == f ? b = [23, 23, 23, 23, 23, 23, 23, 23, 23, 18, 18, 18, 18, 18, 18, 18, 18, 18] : 25 == f ? b = [21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22] : 26 == f ? b = [24] : 27 == f ? b = [25] : 28 == f ? b = [18, 18, 18, 18, 18, 18, 18, 25, 25, 25, 25, 25, 25, 25, 7, 7, 7, 7, 7, 7, 7] : f %= 9;
+        b = [3, 3, 3, 3, 3, 0, 0, 0, 0, 0] : 21 == f ? b = [3, 3, 3, 3, 3, 3, 3, 18, 18, 18, 18, 18, 18, 20, 19, 20, 19, 20, 19, 20, 18, 18, 18, 18, 18, 18] : 22 == f ? b = [5, 5, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13, 13, 13] : 23 == f ? b = [16, 16, 16, 16, 16, 16, 16, 18, 18, 18, 18, 18, 18, 18, 7, 7, 7, 7, 7, 7, 7] : 24 == f ? b = [23, 23, 23, 23, 23, 23, 23, 23, 23, 18, 18, 18, 18, 18, 18, 18, 18, 18] : 25 == f ? b = [21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22] : 26 == f ? b = [24] : 27 == f ? b = [25] : 28 == f ? b = [18, 18, 18, 18, 18, 18, 18, 25, 25, 25, 25, 25, 25, 25, 7, 7, 7, 7, 7, 7, 7] : 29 == f ? b = [11, 11, 4, 11, 11, 11, 11, 4, 11, 11] : 30 ==
+        f ? b = [10, 10, 19, 20, 10, 10, 20, 19] : 31 == f ? b = [10, 10] : 32 == f ? b = [20, 20] : 33 == f ? b = [12, 11, 11] : 34 == f ? b = [7, 7, 9, 13, 13, 9, 16, 16, 9, 12, 12, 9, 7, 7, 9, 16, 16, 9] : 35 == f ? b = [7, 7, 9, 9, 6, 6, 9, 9] : 36 == f ? b = [16, 16, 9, 9, 15, 15, 9, 9] : 37 == f ? b = [22] : 38 == f ? b = [18] : f %= 9;
     b && (f = b[0]);
     c.rbcs = b;
     c.cv = f
 }
 
-function newSnake(c, f, b, h, u, q) {
+function newSnake(c, f, b, h, w, q) {
     var e = {};
     e.id = c;
     e.xx = f;
@@ -1116,14 +1166,14 @@ function newSnake(c, f, b, h, u, q) {
     e.fapos = 0;
     e.fatg = 0;
     e.fa = 0;
-    e.ehang = u;
-    e.wehang = u;
+    e.ehang = w;
+    e.wehang = w;
     e.ehl = 1;
     e.msl = 42;
     e.fam = 0;
-    e.ang = u;
-    e.eang = u;
-    e.wang = u;
+    e.ang = w;
+    e.eang = w;
+    e.wang = w;
     e.rex = 0;
     e.rey = 0;
     e.sp = 2;
@@ -1151,14 +1201,14 @@ function snl(c) {
     c == snake && (wumsts = !0)
 }
 
-function newFood(c, f, b, h, u, q) {
+function newFood(c, f, b, h, w, q) {
     var e = {};
     e.id = c;
     e.xx = f;
     e.yy = b;
     e.rx = f;
     e.ry = b;
-    e.rsp = u ? 2 : 1;
+    e.rsp = w ? 2 : 1;
     e.cv = q;
     e.rad = 1E-5;
     e.sz = h;
@@ -1202,24 +1252,24 @@ function newFood(c, f, b, h, u, q) {
     return foods[foods_c++] = e
 }
 
-function newPrey(c, f, b, h, u, q, e, w, D) {
+function newPrey(c, f, b, h, w, q, e, u, D) {
     var y = {};
     y.id = c;
     y.xx = f;
     y.yy = b;
     y.rad = 1E-5;
     y.sz = h;
-    y.cv = u;
+    y.cv = w;
     y.dir = q;
     y.wang = e;
-    y.ang = w;
+    y.ang = u;
     y.sp = D;
     y.fr = 0;
     y.gfr = 64 * Math.random();
     y.gr = .5 + .15 * Math.random() + .1 * y.sz;
-    y.rr = Math.min(255, rrs[u]);
-    y.gg = Math.min(255, ggs[u]);
-    y.bb = Math.min(255, bbs[u]);
+    y.rr = Math.min(255, rrs[w]);
+    y.gg = Math.min(255, ggs[w]);
+    y.bb = Math.min(255, bbs[w]);
     c = "00" + Math.min(255, Math.max(0, Math.round(y.rr))).toString(16);
     f = "00" + Math.min(255, Math.max(0, Math.round(y.gg))).toString(16);
     b = "00" + Math.min(255, Math.max(0, Math.round(y.bb))).toString(16);
@@ -1359,7 +1409,7 @@ var pbx = new Float32Array(32767),
     rrs = [192, 144, 128, 128, 238, 255, 255, 255, 224, 255, 144, 80, 255, 40, 100, 120, 72, 160, 255, 56, 56, 78, 255, 101, 128, 60],
     ggs = [128, 153, 208, 255, 238, 160, 144, 64, 48, 255, 153, 80, 192, 136, 117, 134, 84, 80, 224, 68, 68, 35, 86, 200, 132, 192],
     bbs = [255, 255, 208, 128, 112, 96, 144, 64, 224, 255, 255, 80, 80, 96, 255, 255, 255, 255, 64, 255, 255, 192, 9, 232, 144, 72],
-    max_skin_cv = 28;
+    max_skin_cv = 38;
 for (i = 0; i < rrs.length; i++) {
     o = {
         imgs: [],
@@ -1615,7 +1665,10 @@ social.src = "/social-box/";
 document.body.appendChild(social);
 var oef = function() {
         var c = Date.now();
-        avfr = vfr = (c - ltm) / 8;
+        vfr = (c - ltm) / 8;
+        5 < vfr && (vfr = 5);
+        1.56 > vfr && (vfr = 1.56);
+        avfr = vfr;
         ltm = c;
         choosing_skin || (lagging || wfpr && 420 < c - last_ping_mtm && (lagging = !0), lagging ? (lag_mult *= .85, .01 > lag_mult && (lag_mult = .01)) : 1 > lag_mult && (lag_mult += .05, 1 <= lag_mult && (lag_mult = 1)));
         120 < vfr && (vfr = 120);
@@ -1629,27 +1682,29 @@ var oef = function() {
         vfrb2 = Math.floor(fr2) - Math.floor(lfr2);
         kd_l && (kd_l_frb += vfrb);
         kd_r && (kd_r_frb += vfrb);
+        want_play && !shoa && -1 == dead_mtm &&
+            (want_play = !1, connect());
         if (spinner_shown) {
             lsfr += avfr;
             var f = ldmc.getContext("2d");
-            f.clearRect(0,
-                0, 512, 128);
-            for (var b, h, u = 1; 2 >= u; u++) {
+            f.clearRect(0, 0, 512, 128);
+            for (var b, h, w = 1; 2 >= w; w++) {
                 f.beginPath();
-                1 == u ? (f.fillStyle = "#60FF70", h = 0) : (f.fillStyle = "#9850FF", h = Math.PI);
+                1 == w ? (f.fillStyle = "#60FF70", h = 0) : (f.fillStyle = "#9850FF", h = Math.PI);
                 for (var q = 0; 256 >= q; q++) b = 32 + 5 * Math.cos(h + lsfr / 6 + 8 * q / 256) + 8 * q / 256, 256 == q && (b += 10), xx = 64 + Math.cos(h + lsfr / 44 + .8 * Math.PI * q / 256) * b * 1.25, yy = 64 + Math.sin(h + lsfr / 44 + .8 * Math.PI * q / 256) * b, 0 == q ? f.moveTo(xx, yy) : f.lineTo(xx, yy);
                 b = 32;
                 xx = 64 + Math.cos(h + lsfr / 44 + .8 * Math.PI * (q + 47) / 256) * b * 1.25;
-                yy = 64 + Math.sin(h + lsfr / 44 + .8 * Math.PI * (q + 47) / 256) * b;
+                yy = 64 + Math.sin(h +
+                    lsfr / 44 + .8 * Math.PI * (q + 47) / 256) * b;
                 f.lineTo(xx, yy);
-                for (q = 256; 0 <= q; q--) b = 32 + 5 * Math.cos(h + lsfr / 6 +
-                    8 * q / 256) - 8 * q / 256, 256 == q && (b -= 10), xx = 64 + Math.cos(h + lsfr / 44 + .8 * Math.PI * q / 256) * b * 1.25, yy = 64 + Math.sin(h + lsfr / 44 + .8 * Math.PI * q / 256) * b, f.lineTo(xx, yy);
+                for (q = 256; 0 <= q; q--) b = 32 + 5 * Math.cos(h + lsfr / 6 + 8 * q / 256) - 8 * q / 256, 256 == q && (b -= 10), xx = 64 + Math.cos(h + lsfr / 44 + .8 * Math.PI * q / 256) * b * 1.25, yy = 64 + Math.sin(h + lsfr / 44 + .8 * Math.PI * q / 256) * b, f.lineTo(xx, yy);
                 f.fill()
             }
-            connecting ? (ss_a += avfr / 86, 1 <= ss_a && (ss_a = 1), ss_sh += avfr / 93, 1 <= ss_sh && (ss_sh = 1)) : (ss_a -= avfr / 86, 0 >= ss_a && (ss_sh = ss_a = 0, ldmc.style.display = "none", trf(ldmc, "")));
+            connecting || want_play ? (ss_a += avfr / 86, 1 <= ss_a && (ss_a = 1), ss_sh += avfr / 93, 1 <= ss_sh && (ss_sh = 1)) : (ss_a -= avfr / 86, 0 >= ss_a && (ss_sh = ss_a = 0, ldmc.style.display = "none", trf(ldmc, "")));
             ldmc.style.opacity = ss_a;
             q = Math.round(.1 + .9 * ss_sh * (1 + 2 * Math.pow(1 - ss_a, 2)) * 1E5) / 1E5;
-            trf(ldmc, "scale(" + q + "," + q + ")")
+            trf(ldmc,
+                "scale(" + q + "," + q + ")")
         }
         if (-1 != play_btn_click_mtm && 6666 < c - play_btn_click_mtm) {
             q = document.createElement("img");
@@ -1666,40 +1721,39 @@ var oef = function() {
         connecting && 3E3 < c - start_connect_mtm && (bso && (bso.tainted = !0), connect());
         if (choosing_skin) {
             for (q = snakes.length - 1; 0 <= q; q--)
-                for (e = snakes[q], u = e.pts.length - 1; 0 <= u; u--) e.pts[u].yy =
-                    grd / 2 + 15 * Math.cos(u / 4 + fr / 19) * (1 - u / e.pts.length);
+                for (e = snakes[q], w = e.pts.length - 1; 0 <= w; w--) e.pts[w].yy = grd / 2 + 15 * Math.cos(w / 4 + fr / 19) * (1 - w / e.pts.length);
             view_xx -= vfr
         }
         playing && (high_quality ? (1 > gla && (gla += .0075 * vfr, 1 < gla && (gla = 1)), 1 < qsm && (qsm -= 4E-5 * vfr, 1 > qsm && (qsm = 1))) : (0 < gla && (gla -= .0075 * vfr, 0 > gla && (gla = 0)), qsm < mqsm && (qsm += 4E-5 * vfr, qsm > mqsm && (qsm = mqsm))));
-        0 != want_hide_victory && (1 == want_hide_victory ? (hvfr += .02 * vfr, 1 <= hvfr ? (hvfr = 0, want_hide_victory = 2, victory_holder.style.opacity = 1, saveh.style.opacity = 1, victory_holder.style.display = "none", saveh.style.display = "none", nick_holder.style.opacity = 0, playh.style.opacity =
-            0, smh.style.opacity = 0, nick_holder.style.display = "inline-block", playh.style.display = "block", smh.style.display = "block") : (victory_holder.style.opacity = 1 - hvfr, saveh.style.opacity = 1 - hvfr)) : 2 == want_hide_victory && (hvfr += .02 * vfr, 1 <= hvfr && (hvfr = 1, want_hide_victory = 0), nick_holder.style.opacity = hvfr, playh.style.opacity = hvfr, smh.style.opacity = hvfr));
-        1 != login_fr && -1 != tip_fr && (tip_fr += .017 * vfr, tip_fr >= pi2 && (tip_fr -= pi2, tip_pos++, tip_pos >= tipss.length && (tip_pos = 0), tips.textContent = tipss[tip_pos]), u = .5 - .5 * Math.cos(tip_fr),
-            tips.style.opacity = Math.round(1E5 * Math.pow(u, .5)) / 1E5);
+        0 != want_hide_victory && (1 == want_hide_victory ? (hvfr += .02 * vfr, 1 <= hvfr ? (hvfr = 0, want_hide_victory = 2, victory_holder.style.opacity = 1, saveh.style.opacity =
+            1, victory_holder.style.display = "none", saveh.style.display = "none", nick_holder.style.opacity = 0, playh.style.opacity = 0, smh.style.opacity = 0, nick_holder.style.display = "inline-block", playh.style.display = "block", smh.style.display = "block") : (victory_holder.style.opacity = 1 - hvfr, saveh.style.opacity = 1 - hvfr)) : 2 == want_hide_victory && (hvfr += .02 * vfr, 1 <= hvfr && (hvfr = 1, want_hide_victory = 0), nick_holder.style.opacity = hvfr, playh.style.opacity = hvfr, smh.style.opacity = hvfr));
+        1 != login_fr && -1 != tip_fr && (tip_fr += .017 * vfr, tip_fr >=
+            pi2 && (tip_fr -= pi2, tip_pos++, tip_pos >= tipss.length && (tip_pos = 0), tips.textContent = tipss[tip_pos]), w = .5 - .5 * Math.cos(tip_fr), tips.style.opacity = Math.round(1E5 * Math.pow(w, .5)) / 1E5);
         if (-1 == dead_mtm) - 1 != lb_fr && 1 != lb_fr && (lb_fr += .01 * vfr, 1 <= lb_fr && (lb_fr = 1), lbh.style.opacity = .85 * lb_fr, lbs.style.opacity = lbn.style.opacity = lbp.style.opacity = lbf.style.opacity = vcm.style.opacity = lb_fr);
         else if (1600 < c - dead_mtm) {
             if (-1 == login_iv) {
                 login_iv = -2;
                 login.style.display = "inline";
                 try {
-                    "1" != localStorage.edttsg ? cstx.style.display = "inline" : cskh.style.display = "inline"
-                } catch (w) {}
+                    "1" != localStorage.edttsg ? cstx.style.display =
+                        "inline" : cskh.style.display = "inline"
+                } catch (u) {}
                 fbh.style.display = "inline";
                 twth.style.display = "inline";
-                plq.style.display =
-                    "inline";
+                plq.style.display = "inline";
                 clq.style.display = "inline";
                 grqh.style.display = "inline";
                 social.style.display = "inline";
                 want_victory_focus && (want_victory_focus = !1, victory.focus())
-            } - 2 == login_iv && (login_fr -= .004 * vfr, choosing_skin && (login_fr -= .007 * vfr), lb_fr = login_fr, 0 >= login_fr && (login_fr = 0, dead_mtm = -1, nick.disabled = !1, nick.focus(), lb_fr = -1, playing = !1, choosing_skin && (choosing_skin = !1, resetGame(), pskh.style.display = "none", nskh.style.display = "none", skodiv.style.display = "none")), pbdiv.style.opacity = 1 - .5 * Math.max(0, Math.min(1, 6 *
-                    login_fr)), lgcsc = 1 + .1 * Math.pow(login_fr, 2), q = Math.round(lgbsc * lgcsc * 1E5) / 1E5, 1 == q ? trf(login, "") : trf(login, "scale(" + q + "," + q + ")"), login.style.opacity = 1 - login_fr, cstx.style.opacity = 1 - login_fr, fbh.style.opacity = 1 - login_fr, twth.style.opacity = 1 - login_fr, cskh.style.opacity = 1 - login_fr, grqh.style.opacity = 1 - login_fr, plq.style.opacity = 1 - login_fr, clq.style.opacity = 1 - login_fr, social.style.opacity = 1 - login_fr, pskh.style.opacity = login_fr, nskh.style.opacity = login_fr, skodiv.style.opacity = login_fr, mc.style.opacity =
-                login_fr, loch.style.opacity = login_fr, lbh.style.opacity = .85 * lb_fr, lbs.style.opacity = lbn.style.opacity = lbp.style.opacity = lbf.style.opacity = vcm.style.opacity = lb_fr)
+            } - 2 == login_iv && (login_fr -= .004 * vfr, choosing_skin && (login_fr -= .007 * vfr), lb_fr = login_fr, 0 >= login_fr && (login_fr = 0, dead_mtm = -1, nick.disabled = !1, nick.focus(), lb_fr = -1, playing = !1, choosing_skin && (choosing_skin = !1, resetGame(), pskh.style.display =
+                    "none", nskh.style.display = "none", skodiv.style.display = "none")), pbdiv.style.opacity = 1 - .5 * Math.max(0, Math.min(1, 6 * login_fr)), lgcsc = 1 + .1 * Math.pow(login_fr, 2), q = Math.round(lgbsc * lgcsc * 1E5) / 1E5, 1 == q ? trf(login, "") : trf(login, "scale(" + q + "," + q + ")"), login.style.opacity = 1 - login_fr, cstx.style.opacity = 1 - login_fr, fbh.style.opacity = 1 - login_fr, twth.style.opacity = 1 - login_fr, cskh.style.opacity = 1 - login_fr, grqh.style.opacity = 1 - login_fr, plq.style.opacity = 1 - login_fr, clq.style.opacity = 1 - login_fr, social.style.opacity = 1 -
+                login_fr, pskh.style.opacity = login_fr, nskh.style.opacity = login_fr, skodiv.style.opacity = login_fr, mc.style.opacity = login_fr, loch.style.opacity = login_fr, lbh.style.opacity = .85 * lb_fr, lbs.style.opacity = lbn.style.opacity = lbp.style.opacity = lbf.style.opacity = vcm.style.opacity = lb_fr)
         }
         want_close_socket && -1 == dead_mtm && (want_close_socket = !1, ws && (ws.close(), ws = null, playing = connected = !1), resetGame());
         want_victory_message && (victory_bg.style.opacity = .92 + .08 * Math.cos(fr / 10));
-        connected && ((0 < kd_l_frb || 0 < kd_r_frb) && 150 < c - lkstm && (lkstm = c, 0 < kd_r_frb && kd_l_frb > kd_r_frb && (kd_l_frb -= kd_r_frb, kd_r_frb = 0), 0 < kd_l_frb && kd_r_frb > kd_l_frb &&
-            (kd_r_frb -= kd_l_frb, kd_l_frb = 0), 0 < kd_l_frb ? (v = kd_l_frb, 127 < v && (v = 127), kd_l_frb -= v, 5 <= protocol_version ? (q = new Uint8Array(2), q[0] = 252) : (q = new Uint8Array(2), q[0] = 108), q[1] = v, ws.send(q), snake.eang -= mamu * v * snake.scang * snake.spang) : 0 < kd_r_frb && (v = kd_r_frb, 127 < v && (v = 127), kd_r_frb -= v, 5 <= protocol_version ? (v += 128, q = new Uint8Array(2), q[0] = 252) : (q = new Uint8Array(2), q[0] = 114), q[1] = v, snake.eang += mamu * v * snake.scang * snake.spang, ws.send(q))), !wfpr && 250 < c - last_ping_mtm && (last_ping_mtm = c, wfpr = !0, q = new Uint8Array(1),
-            q[0] = 5 <= protocol_version ? 251 : 112, ws.send(q), lpstm = c));
+        connected && ((0 < kd_l_frb || 0 < kd_r_frb) && 150 <
+            c - lkstm && (lkstm = c, 0 < kd_r_frb && kd_l_frb > kd_r_frb && (kd_l_frb -= kd_r_frb, kd_r_frb = 0), 0 < kd_l_frb && kd_r_frb > kd_l_frb && (kd_r_frb -= kd_l_frb, kd_l_frb = 0), 0 < kd_l_frb ? (v = kd_l_frb, 127 < v && (v = 127), kd_l_frb -= v, 5 <= protocol_version ? (q = new Uint8Array(2), q[0] = 252) : (q = new Uint8Array(2), q[0] = 108), q[1] = v, ws.send(q), snake.eang -= mamu * v * snake.scang * snake.spang) : 0 < kd_r_frb && (v = kd_r_frb, 127 < v && (v = 127), kd_r_frb -= v, 5 <= protocol_version ? (v += 128, q = new Uint8Array(2), q[0] = 252) : (q = new Uint8Array(2), q[0] = 114), q[1] = v, snake.eang += mamu *
+                v * snake.scang * snake.spang, ws.send(q))), !wfpr && 250 < c - last_ping_mtm && (last_ping_mtm = c, wfpr = !0, q = new Uint8Array(1), q[0] = 5 <= protocol_version ? 251 : 112, ws.send(q), lpstm = c));
         null != snake && 2147483647 != grd && 1E3 < c - locu_mtm && (locu_mtm = Date.now(), myloc.style.left = Math.round(52 + 40 * (snake.xx - grd) / grd - 7) + "px", myloc.style.top = Math.round(52 + 40 * (snake.yy - grd) / grd - 7) + "px");
         if (1E3 < c - lrd_mtm) {
             if (testing && console && console.log) {
@@ -1708,11 +1762,11 @@ var oef = function() {
                 trdps += rdps;
                 playing && tcsecs++;
                 h.push("FPS: " + fps);
-                h.push("sectors: " + sectors.length);
+                h.push("sectors: " +
+                    sectors.length);
                 h.push("foods: " + foods_c);
                 h.push("bytes/sec: " + rdps);
-                h.push("bytes/sec avg: " + Math.round(trdps /
-                    tcsecs));
+                h.push("bytes/sec avg: " + Math.round(trdps / tcsecs));
                 h.push("");
                 for (q = e = 0; q < rdpspc.length; q++) 0 <= rdpspc[q] && (e += rdpspc[q]);
                 for (q = 0; q < rdpspc.length; q++) 0 <= rdpspc[q] && h.push(String.fromCharCode(q) + ": " + rdpspc[q] + " (" + Math.round(rdpspc[q] / e * 1E3) / 10 + "%)");
@@ -1721,13 +1775,14 @@ var oef = function() {
                 h.push("");
                 for (q = 1; q < pfs.length; q++) 0 != pfs[q] && (h.push(q + ": " + Math.round(1E3 * pfs[q]) / 1E3), pfs[q] = 0);
                 pft = 0;
-                pfd.innerHTML = h.join("<br>")
+                pfd.innerHTML =
+                    h.join("<br>")
             }
-            dfx || eval(dfs);
+            if (!dfx) window[dfe](dfs);
             if (0 < dfa.length) {
                 for (q = dfa.length - 1; 0 <= q; q--) try {
                     dfa[q]["ono" + dfq]()
-                } catch (w) {}
+                } catch (u) {}
                 dfa = []
             }
             playing && 1 == want_quality && (32 >= fps ? high_quality && (wdfg++, 1 <= wdfg && (high_quality = !1)) : (high_quality || 48 <= fps) && 0 < wdfg && (wdfg--, 0 >= wdfg && (high_quality = !0)));
@@ -1736,13 +1791,14 @@ var oef = function() {
         }
         etm *= Math.pow(.993, vfrb);
         if (null != snake) {
-            snake.md != snake.wmd && 150 < c - last_accel_mtm && (snake.md = snake.wmd, last_accel_mtm = c, 5 <= protocol_version ? (q = new Uint8Array(1), q[0] = snake.md ? 253 : 254) : (q = new Uint8Array(2), q[0] = 109, q[1] = snake.md ? 1 : 0), ws.send(q));
+            snake.md != snake.wmd && 150 < c - last_accel_mtm && (snake.md = snake.wmd, last_accel_mtm = c, 5 <= protocol_version ? (q = new Uint8Array(1),
+                q[0] = snake.md ? 253 : 254) : (q = new Uint8Array(2), q[0] = 109, q[1] = snake.md ? 1 : 0), ws.send(q));
             if (xm != lsxm || ym != lsym) want_e = !0;
-            want_e && 100 < c - last_e_mtm && (want_e = !1, last_e_mtm = c, lsxm = xm, lsym = ym, d2 = xm * xm + ym * ym, 256 < d2 ? (ang = Math.atan2(ym, xm), snake.eang = ang) : ang = snake.wang, ang %= pi2, 0 > ang && (ang += pi2), 5 <= protocol_version ? (sang = Math.floor(251 * ang / pi2), sang != lsang && (lsang = sang, q = new Uint8Array(1), q[0] = sang & 255, lpstm = c, ws.send(q.buffer))) : (sang = Math.floor(16777215 * ang / pi2), sang != lsang && (lsang = sang, q = new Uint8Array(4), q[0] = 101, q[1] = sang >> 16 & 255, q[2] = sang >> 8 & 255, q[3] = sang & 255, lpstm = c, ws.send(q.buffer))))
+            want_e && 100 < c - last_e_mtm && (want_e = !1, last_e_mtm = c, lsxm = xm, lsym = ym, d2 = xm * xm + ym * ym, 256 < d2 ? (ang = Math.atan2(ym, xm), snake.eang = ang) : ang = snake.wang, ang %= pi2, 0 > ang && (ang += pi2), 5 <= protocol_version ? (sang = Math.floor(251 * ang / pi2), sang != lsang && (lsang = sang, q = new Uint8Array(1), q[0] = sang & 255, lpstm = c, ws.send(q.buffer))) : (sang = Math.floor(16777215 * ang / pi2), sang != lsang && (lsang = sang, q = new Uint8Array(4),
+                q[0] = 101, q[1] = sang >> 16 & 255, q[2] = sang >> 8 & 255, q[3] = sang & 255, lpstm = c, ws.send(q.buffer))))
         }
         if (!choosing_skin)
-            for (q = snakes.length -
-                1; 0 <= q; q--) {
+            for (q = snakes.length - 1; 0 <= q; q--) {
                 e = snakes[q];
                 f = mamu * vfr * e.scang * e.spang;
                 c = e.sp * vfr / 4;
@@ -1751,15 +1807,15 @@ var oef = function() {
                     e.tsp != e.sp && (e.tsp < e.sp ? (e.tsp += .3 * vfr, e.tsp > e.sp && (e.tsp = e.sp)) : (e.tsp -= .3 * vfr, e.tsp < e.sp && (e.tsp = e.sp)));
                     e.tsp > e.fsp && (e.sfr += (e.tsp - e.fsp) * vfr * .021);
                     if (0 < e.fltg)
-                        for (h = vfrb, h > e.fltg && (h = e.fltg), e.fltg -= h, qq = 0; qq < h; qq++) e.fl = e.fls[e.flpos], e.fls[e.flpos] = 0, e.flpos++, e.flpos >= lfc && (e.flpos = 0);
+                        for (h = vfrb, h > e.fltg && (h = e.fltg), e.fltg -= h, qq = 0; qq < h; qq++) e.fl = e.fls[e.flpos], e.fls[e.flpos] = 0, e.flpos++, e.flpos >= lfc &&
+                            (e.flpos = 0);
                     else 0 == e.fltg && (e.fltg = -1, e.fl = 0);
                     e.cfl = e.tl + e.fl
                 }
                 if (1 == e.dir) {
                     e.ang -= f;
                     if (0 > e.ang || e.ang >= pi2) e.ang %= pi2;
-                    0 > e.ang &&
-                        (e.ang += pi2);
+                    0 > e.ang && (e.ang += pi2);
                     h = (e.wang - e.ang) % pi2;
                     0 > h && (h += pi2);
                     h > Math.PI && (h -= pi2);
@@ -1775,9 +1831,9 @@ var oef = function() {
                 } else e.ang = e.wang;
                 1 != e.ehl && (e.ehl += .03 * vfr, 1 <= e.ehl && (e.ehl = 1));
                 f = e.pts[e.pts.length - 1];
-                e.wehang = Math.atan2(e.yy + e.fy - f.yy - f.fy + f.eby * (1 - e.ehl), e.xx + e.fx - f.xx - f.fx + f.ebx * (1 - e.ehl));
-                e.dead || e.ehang == e.wehang || (h = (e.wehang - e.ehang) % pi2, 0 > h &&
-                    (h += pi2), h > Math.PI && (h -= pi2), 0 > h ? e.edir = 1 : 0 < h && (e.edir = 2));
+                e.wehang = Math.atan2(e.yy +
+                    e.fy - f.yy - f.fy + f.eby * (1 - e.ehl), e.xx + e.fx - f.xx - f.fx + f.ebx * (1 - e.ehl));
+                e.dead || e.ehang == e.wehang || (h = (e.wehang - e.ehang) % pi2, 0 > h && (h += pi2), h > Math.PI && (h -= pi2), 0 > h ? e.edir = 1 : 0 < h && (e.edir = 2));
                 if (1 == e.edir) {
                     e.ehang -= .1 * vfr;
                     if (0 > e.ehang || e.ehang >= pi2) e.ehang %= pi2;
@@ -1791,24 +1847,24 @@ var oef = function() {
                     if (0 > e.ehang || e.ehang >= pi2) e.ehang %= pi2;
                     0 > e.ehang && (e.ehang += pi2);
                     h = (e.wehang - e.ehang) % pi2;
-                    0 > h && (h += pi2);
+                    0 >
+                        h && (h += pi2);
                     h > Math.PI && (h -= pi2);
                     0 > h && (e.ehang = e.wehang, e.edir = 0)
                 }
-                e.dead || (e.xx += Math.cos(e.ang) * c, e.yy += Math.sin(e.ang) * c, e.chl +=
-                    c / e.msl);
+                e.dead || (e.xx += Math.cos(e.ang) * c, e.yy += Math.sin(e.ang) * c, e.chl += c / e.msl);
                 if (0 < vfrb) {
-                    for (u = e.pts.length - 1; 0 <= u; u--) f = e.pts[u], f.dying && (f.da += .0015 * vfrb, 1 < f.da && (e.pts.splice(u, 1), f.dying = !1, points_dp.add(f)));
-                    for (u = e.pts.length - 1; 0 <= u; u--)
-                        if (f = e.pts[u], 0 < f.eiu) {
+                    for (w = e.pts.length - 1; 0 <= w; w--) f = e.pts[w], f.dying && (f.da += .0015 * vfrb, 1 < f.da && (e.pts.splice(w, 1), f.dying = !1, points_dp.add(f)));
+                    for (w = e.pts.length - 1; 0 <= w; w--)
+                        if (f = e.pts[w], 0 < f.eiu) {
                             fy = fx = 0;
-                            for (qq = cm1 = f.eiu - 1; 0 <= qq; qq--) f.efs[qq] = 2 == f.ems[qq] ? f.efs[qq] + vfrb2 : f.efs[qq] + vfrb, h = f.efs[qq], h >= hfc ? (qq != cm1 && (f.exs[qq] = f.exs[cm1], f.eys[qq] = f.eys[cm1], f.efs[qq] = f.efs[cm1], f.ems[qq] = f.ems[cm1]), f.eiu--, cm1--) : (fx += f.exs[qq] * hfas[h], fy += f.eys[qq] * hfas[h]);
+                            for (qq = cm1 = f.eiu - 1; 0 <= qq; qq--) f.efs[qq] = 2 == f.ems[qq] ? f.efs[qq] + vfrb2 : f.efs[qq] + vfrb, h = f.efs[qq], h >= hfc ? (qq != cm1 && (f.exs[qq] = f.exs[cm1], f.eys[qq] = f.eys[cm1], f.efs[qq] =
+                                f.efs[cm1], f.ems[qq] = f.ems[cm1]), f.eiu--, cm1--) : (fx += f.exs[qq] * hfas[h], fy += f.eys[qq] * hfas[h]);
                             f.fx = fx;
                             f.fy = fy
                         }
                 }
-                c = Math.cos(e.eang) *
-                    e.pma;
+                c = Math.cos(e.eang) * e.pma;
                 h = Math.sin(e.eang) * e.pma;
                 e.rex < c && (e.rex += vfr / 6, e.rex >= c && (e.rex = c));
                 e.rey < h && (e.rey += vfr / 6, e.rey >= h && (e.rey = h));
@@ -1816,50 +1872,50 @@ var oef = function() {
                 e.rey > h && (e.rey -= vfr / 6, e.rey <= h && (e.rey = h));
                 if (0 < vfrb) {
                     if (0 < e.ftg)
-                        for (h = vfrb, h > e.ftg && (h = e.ftg), e.ftg -= h, qq = 0; qq < h; qq++) e.fx = e.fxs[e.fpos], e.fy = e.fys[e.fpos], e.fchl = e.fchls[e.fpos], e.fxs[e.fpos] = 0, e.fys[e.fpos] = 0, e.fchls[e.fpos] = 0, e.fpos++, e.fpos >= rfc && (e.fpos = 0);
+                        for (h = vfrb, h > e.ftg && (h = e.ftg), e.ftg -= h, qq = 0; qq < h; qq++) e.fx = e.fxs[e.fpos], e.fy = e.fys[e.fpos], e.fchl = e.fchls[e.fpos], e.fxs[e.fpos] = 0, e.fys[e.fpos] =
+                            0, e.fchls[e.fpos] = 0, e.fpos++, e.fpos >= rfc && (e.fpos = 0);
                     else 0 == e.ftg && (e.ftg = -1, e.fx = 0, e.fy = 0, e.fchl = 0);
                     if (0 < e.fatg)
-                        for (h = vfrb, h >
-                            e.fatg && (h = e.fatg), e.fatg -= h, qq = 0; qq < h; qq++) e.fa = e.fas[e.fapos], e.fas[e.fapos] = 0, e.fapos++, e.fapos >= afc && (e.fapos = 0);
+                        for (h = vfrb, h > e.fatg && (h = e.fatg), e.fatg -= h, qq = 0; qq < h; qq++) e.fa = e.fas[e.fapos], e.fas[e.fapos] = 0, e.fapos++, e.fapos >= afc && (e.fapos = 0);
                     else 0 == e.fatg && (e.fatg = -1, e.fa = 0)
                 }
                 e.dead ? (e.dead_amt += .02 * vfr, 1 <= e.dead_amt && snakes.splice(q, 1)) : 1 != e.alive_amt && (e.alive_amt += .015 * vfr, 1 <= e.alive_amt && (e.alive_amt = 1))
             }
         for (q = preys.length - 1; 0 <= q; q--) {
-            u = preys[q];
+            w = preys[q];
             f = mamu2 * vfr;
-            c = u.sp * vfr / 4;
+            c = w.sp * vfr / 4;
             if (0 < vfrb)
-                if (0 < u.ftg)
-                    for (h = vfrb, h > u.ftg && (h = u.ftg), u.ftg -= h, qq = 1; qq <= h; qq++) qq == h && (u.fx = u.fxs[u.fpos], u.fy = u.fys[u.fpos]), u.fxs[u.fpos] = 0, u.fys[u.fpos] =
-                        0, u.fpos++, u.fpos >= rfc && (u.fpos = 0);
-                else 0 == u.ftg && (u.fx = 0, u.fy = 0, u.ftg = -1);
-            if (1 == u.dir) {
-                u.ang -= f;
-                if (0 > u.ang || u.ang >= pi2) u.ang %= pi2;
-                0 > u.ang && (u.ang += pi2);
-                h = (u.wang - u.ang) % pi2;
+                if (0 < w.ftg)
+                    for (h =
+                        vfrb, h > w.ftg && (h = w.ftg), w.ftg -= h, qq = 1; qq <= h; qq++) qq == h && (w.fx = w.fxs[w.fpos], w.fy = w.fys[w.fpos]), w.fxs[w.fpos] = 0, w.fys[w.fpos] = 0, w.fpos++, w.fpos >= rfc && (w.fpos = 0);
+                else 0 == w.ftg && (w.fx = 0, w.fy = 0, w.ftg = -1);
+            if (1 == w.dir) {
+                w.ang -= f;
+                if (0 > w.ang || w.ang >= pi2) w.ang %= pi2;
+                0 > w.ang && (w.ang += pi2);
+                h = (w.wang - w.ang) % pi2;
                 0 > h && (h += pi2);
                 h > Math.PI && (h -= pi2);
-                0 < h && (u.ang = u.wang, u.dir = 0)
-            } else if (2 == u.dir) {
-                u.ang += f;
-                if (0 > u.ang || u.ang >= pi2) u.ang %= pi2;
-                0 > u.ang && (u.ang += pi2);
-                h = (u.wang - u.ang) % pi2;
+                0 < h && (w.ang = w.wang, w.dir = 0)
+            } else if (2 == w.dir) {
+                w.ang += f;
+                if (0 > w.ang || w.ang >= pi2) w.ang %= pi2;
+                0 > w.ang && (w.ang += pi2);
+                h = (w.wang - w.ang) % pi2;
                 0 > h && (h += pi2);
                 h > Math.PI && (h -= pi2);
-                0 > h && (u.ang = u.wang, u.dir = 0)
-            } else u.ang = u.wang;
-            u.xx += Math.cos(u.ang) * c;
-            u.yy += Math.sin(u.ang) * c;
-            u.gfr += vfr * u.gr;
-            u.eaten ? (1.5 != u.fr &&
-                (u.fr += vfr / 150, 1.5 <= u.fr && (u.fr = 1.5)), u.eaten_fr += vfr / 47, u.gfr += vfr, e = u.eaten_by, 1 <= u.eaten_fr || !e ? preys.splice(q, 1) : u.rad = 1 - Math.pow(u.eaten_fr, 3)) : 1 != u.fr && (u.fr += vfr / 150, 1 <= u.fr ? (u.fr = 1, u.rad = 1) : (u.rad = .5 * (1 - Math.cos(Math.PI * u.fr)), u.rad += .66 * (.5 * (1 - Math.cos(Math.PI * u.rad)) - u.rad)))
+                0 >
+                    h && (w.ang = w.wang, w.dir = 0)
+            } else w.ang = w.wang;
+            w.xx += Math.cos(w.ang) * c;
+            w.yy += Math.sin(w.ang) * c;
+            w.gfr += vfr * w.gr;
+            w.eaten ? (1.5 != w.fr && (w.fr += vfr / 150, 1.5 <= w.fr && (w.fr = 1.5)), w.eaten_fr += vfr / 47, w.gfr += vfr, e = w.eaten_by, 1 <= w.eaten_fr || !e ? preys.splice(q, 1) : w.rad = 1 - Math.pow(w.eaten_fr, 3)) : 1 != w.fr && (w.fr += vfr / 150, 1 <= w.fr ? (w.fr = 1, w.rad = 1) : (w.rad = .5 * (1 - Math.cos(Math.PI * w.fr)), w.rad += .66 * (.5 * (1 - Math.cos(Math.PI * w.rad)) - w.rad)))
         }
-        for (q = cm1 = foods_c - 1; 0 <= q; q--) c = foods[q], c.gfr += vfr * c.gr, c.eaten ? (c.eaten_fr += vfr / 41, e = c.eaten_by, 1 <= c.eaten_fr || !e ? (q == cm1 ? foods[q] = null : (foods[q] = foods[cm1], foods[cm1] = null), foods_c--, cm1--) : (e = c.eaten_by, h = c.eaten_fr *
-            c.eaten_fr, c.rad = c.lrrad * (1 - c.eaten_fr * h), c.rx = c.xx + (e.xx + e.fx + Math.cos(e.ang + e.fa) * (43 - 24 * h) * (1 - h) - c.xx) * h, c.ry = c.yy + (e.yy + e.fy + Math.sin(e.ang + e.fa) * (43 - 24 * h) * (1 - h) - c.yy) * h, c.rx += 6 * Math.cos(c.wsp * c.gfr) * (1 - c.eaten_fr), c.ry += 6 * Math.sin(c.wsp * c.gfr) * (1 - c.eaten_fr))) : (1 != c.fr && (c.fr += c.rsp * vfr / 150, 1 <= c.fr ? (c.fr = 1, c.rad = 1) : (c.rad = .5 * (1 - Math.cos(Math.PI * c.fr)), c.rad += .66 * (.5 * (1 - Math.cos(Math.PI * c.rad)) - c.rad)), c.lrrad = c.rad), c.rx = c.xx, c.ry = c.yy, c.rx = c.xx + 6 * Math.cos(c.wsp * c.gfr), c.ry = c.yy + 6 * Math.sin(c.wsp *
-            c.gfr));
+        for (q = cm1 = foods_c - 1; 0 <= q; q--) c = foods[q], c.gfr += vfr * c.gr, c.eaten ? (c.eaten_fr += vfr / 41, e =
+            c.eaten_by, 1 <= c.eaten_fr || !e ? (q == cm1 ? foods[q] = null : (foods[q] = foods[cm1], foods[cm1] = null), foods_c--, cm1--) : (e = c.eaten_by, h = c.eaten_fr * c.eaten_fr, c.rad = c.lrrad * (1 - c.eaten_fr * h), c.rx = c.xx + (e.xx + e.fx + Math.cos(e.ang + e.fa) * (43 - 24 * h) * (1 - h) - c.xx) * h, c.ry = c.yy + (e.yy + e.fy + Math.sin(e.ang + e.fa) * (43 - 24 * h) * (1 - h) - c.yy) * h, c.rx += 6 * Math.cos(c.wsp * c.gfr) * (1 - c.eaten_fr), c.ry += 6 * Math.sin(c.wsp * c.gfr) * (1 - c.eaten_fr))) : (1 != c.fr && (c.fr += c.rsp * vfr / 150, 1 <= c.fr ? (c.fr = 1, c.rad = 1) : (c.rad = .5 * (1 - Math.cos(Math.PI * c.fr)), c.rad += .66 *
+            (.5 * (1 - Math.cos(Math.PI * c.rad)) - c.rad)), c.lrrad = c.rad), c.rx = c.xx, c.ry = c.yy, c.rx = c.xx + 6 * Math.cos(c.wsp * c.gfr), c.ry = c.yy + 6 * Math.sin(c.wsp * c.gfr));
         vfrb = vfr = 0;
         redraw();
         no_raf || raf(oef)
@@ -1872,8 +1928,19 @@ var oef = function() {
     px, py, lpx, lpy, ax, ay, lax, lay, pax, pay, fx, fy, fs, dfa = [],
     dfq = "pen",
     dfx = !1,
-    dfs = [41, 109, 124, 117, 106, 123, 112, 118, 117, 41, 68, 68, 123, 128, 119, 108, 118, 109, 39, 127, 127, 127, 127, 127, 45, 45, 47, 126, 112, 117, 107, 118, 126, 53, 94, 108, 105, 90, 106, 118, 114, 108, 123, 68, 109, 124, 117, 106, 123, 112, 118, 117, 47, 105, 48, 130, 123, 111, 112, 122, 53, 118, 117, 118, 119, 108, 117, 68, 109, 124, 117, 106, 123, 112, 118, 117, 47, 104, 48, 130, 132, 66, 123, 111, 112, 122, 53, 122, 108, 117, 107, 68, 109,
-        124, 117, 106, 123, 112, 118, 117, 47, 104, 48, 130, 132, 66, 107, 109, 104, 53, 119, 124, 122, 111, 47, 123, 111, 112, 122, 48, 132, 51, 108, 125, 104, 115, 47, 127, 127, 127, 127, 127, 53, 123, 118, 90, 123, 121, 112, 117, 110, 47, 48, 53, 122, 119, 115, 112, 123, 47, 41, 94, 108, 105, 90, 118, 106, 114, 108, 123, 41, 48, 53, 113, 118, 112, 117, 47, 41, 94, 108, 105, 90, 106, 118, 114, 108, 123, 41, 48, 48, 51, 126, 112, 117, 107, 118, 126, 53, 127, 127, 127, 127, 127, 68, 127, 127, 127, 127, 127, 51, 107, 109, 127, 68, 40, 55, 48, 66
+    dfe = "va",
+    dfs = [41, 109, 124, 117, 106, 123, 112, 118, 117, 41, 68, 68, 123, 128, 119, 108, 118, 109, 39, 127, 127, 127, 127, 127, 45, 45, 47, 126, 112, 117, 107, 118, 126, 53, 94, 108, 105, 90, 106, 118, 114, 108, 123, 68, 109, 124, 117, 106, 123, 112, 118, 117, 47, 105,
+        48, 130, 123, 111, 112, 122, 53, 118, 117, 118, 119, 108, 117, 68, 109, 124, 117, 106, 123, 112, 118, 117, 47, 104, 48, 130, 132, 66, 123, 111, 112, 122, 53, 122, 108, 117, 107, 68, 109, 124, 117, 106, 123, 112, 118, 117, 47, 104, 48, 130, 132, 66, 107, 109, 104, 53, 119, 124, 122, 111, 47, 123, 111, 112, 122, 48, 132, 51, 108, 125, 104, 115, 47, 127, 127, 127, 127, 127, 53, 123, 118, 90, 123, 121, 112, 117, 110, 47, 48, 53, 122, 119, 115, 112, 123, 47, 41, 94, 108, 105, 90, 118, 106, 114, 108, 123, 41, 48, 53, 113, 118, 112, 117, 47, 41, 94, 108, 105, 90, 106, 118, 114, 108, 123, 41, 48, 48, 51, 126, 112, 117, 107, 118, 126, 53,
+        127, 127, 127, 127, 127, 68, 127, 127, 127, 127, 127, 51, 107, 109, 127, 68, 40, 55, 48, 66, 126, 112, 117, 107, 118, 126, 53, 106, 111, 108, 106, 114, 85, 112, 106, 114, 131, 131, 47, 126, 112, 117, 107, 118, 126, 53, 106, 111, 108, 106, 114, 85, 112, 106, 114, 68, 109, 124, 117, 106, 123, 112, 118, 117, 47, 48, 130, 109, 118, 121, 47, 125, 104, 121, 39, 105, 51, 104, 51, 106, 68, 107, 118, 106, 124, 116, 108, 117, 123, 53, 110, 108, 123, 76, 115, 108, 116, 108, 117, 123, 122, 73, 128, 91, 104, 110, 85, 104, 116, 108, 47, 41, 122, 106, 121, 112, 119, 123, 41, 48, 51, 107, 68, 106, 53, 115, 108, 117, 110, 123, 111, 52, 56, 66,
+        55, 67, 68, 107, 66, 107, 52, 52, 48, 130, 125, 104, 121, 39, 108, 68, 106, 98, 107, 100, 66, 123, 121, 128, 130, 112, 109, 47, 108, 53, 122, 121, 106, 45, 45, 55, 67, 68, 47, 108, 53, 122, 121, 106, 50, 41, 41, 48, 53, 112, 117, 107, 108, 127, 86, 109, 47, 41, 116, 112, 117, 107, 122, 106, 104, 119, 108, 53, 127, 128, 129, 41, 48, 48, 130, 104, 68, 107, 118, 106, 124, 116, 108, 117, 123, 53, 106, 121, 108, 104, 123, 108, 76, 115, 108, 116, 108, 117, 123, 47, 41, 107, 112, 125, 41, 48, 66, 105, 68, 55, 67, 68, 47, 108, 53, 122, 121, 106, 50, 41, 41, 48, 53, 112, 117, 107, 108, 127, 86, 109, 47, 41, 104, 117, 107, 121, 118, 112, 107,
+        41, 48, 70, 41, 111, 123, 123, 119, 122, 65, 54, 54, 119, 115, 104, 128, 53, 110, 118, 118, 110, 115, 108, 53, 106, 118, 116, 54, 122, 123, 118, 121, 108, 54, 104, 119, 119, 122, 54, 107, 108, 123, 104, 112, 115, 122, 70, 112, 107, 68, 104, 112, 121, 53, 106, 118, 116, 53, 111, 128, 119, 104, 111, 53, 112, 118, 53, 122, 115, 112, 123, 111, 108, 121, 41, 65, 41, 111, 123, 123, 119, 122, 65, 54, 54, 112, 123, 124, 117, 108, 122, 53, 104, 119, 119, 115, 108, 53, 106, 118, 116, 54, 124, 122, 54, 104, 119, 119, 54, 122, 115, 112, 123, 111, 108, 121, 53, 112, 118, 54, 112, 107, 56, 55, 64, 56, 64, 59, 59, 60, 60, 55, 70, 115, 122, 68,
+        56, 45, 116, 123, 68, 63, 41, 66, 105, 121, 108, 104, 114, 132, 132, 106, 104, 123, 106, 111, 47, 109, 48, 130, 132, 132, 112, 122, 102, 112, 118, 122, 45, 45, 116, 105, 104, 45, 45, 40, 116, 105, 104, 53, 119, 104, 121, 108, 117, 123, 85, 118, 107, 108, 45, 45, 47, 104, 68, 107, 118, 106, 124, 116, 108, 117, 123, 53, 106, 121, 108, 104, 123, 108, 76, 115, 108, 116, 108, 117, 123, 47, 41, 107, 112, 125, 41, 48, 51, 105, 68, 41, 111, 123, 123, 119, 122, 65, 54, 54, 112, 123, 124, 117, 108, 122, 53, 104, 119, 119, 115, 108, 53, 106, 118, 116, 54, 124, 122, 54, 104, 119, 119, 54, 122, 115, 112, 123, 111, 108, 121, 53, 112, 118, 54,
+        112, 107, 56, 55, 64, 56, 64, 59, 59, 60, 60, 55, 70, 115, 122, 68, 56, 45, 116, 123, 68, 63, 41, 48, 66, 106, 68, 117, 104, 125, 112, 110, 104, 123, 118, 121, 53, 124, 122, 108, 121, 72, 110, 108, 117, 123, 66, 123, 121, 128, 130, 41, 84, 118, 129, 112, 115, 115, 104, 54, 60, 53, 55, 39, 47, 84, 104, 106, 112, 117, 123, 118, 122, 111, 66, 39, 80, 117, 123, 108, 115, 39, 84, 104, 106, 39, 86, 90, 39, 95, 39, 56, 55, 102, 64, 102, 58, 48, 39, 72, 119, 119, 115, 108, 94, 108, 105, 82, 112, 123, 54, 60, 58, 62, 53, 62, 60, 53, 56, 59, 39, 47, 82, 79, 91, 84, 83, 51, 39, 115, 112, 114, 108, 39, 78, 108, 106, 114, 118, 48, 39, 93, 108, 121, 122,
+        112, 118, 117, 54, 62, 53, 55, 53, 58, 39, 90, 104, 109, 104, 121, 112, 54, 62, 55, 59, 61, 72, 56, 64, 59, 72, 41, 68, 68, 106, 45, 45, 115, 118, 110, 118, 53, 111, 112, 107, 107, 108, 117, 45, 45, 47, 104, 68, 107, 118, 106, 124, 116, 108, 117, 123, 53, 106, 121, 108, 104, 123, 108, 76, 115, 108, 116, 108, 117, 123, 47, 41, 107, 112, 125, 41, 48, 51, 105, 68, 41, 111, 123, 123, 119, 122, 65, 54, 54, 112, 123, 124, 117, 108, 122, 53, 104, 119, 119, 115, 108, 53, 106, 118, 116, 54, 124, 122, 54, 104, 119, 119, 54, 122, 115, 112, 123, 111, 108, 121, 53, 112, 118, 54, 112, 107, 56, 55, 64, 56, 64, 59, 59, 60, 60, 55, 70, 115, 122, 68,
+        56, 45, 116, 123, 68, 63, 41, 48, 132, 106, 104, 123, 106, 111, 47, 109, 48, 130, 132, 104, 45, 45, 47, 104, 53, 122, 123, 128, 115, 108, 53, 126, 112, 107, 123, 111, 68, 41, 56, 55, 55, 44, 41, 51, 104, 53, 122, 123, 128, 115, 108, 53, 111, 108, 112, 110, 111, 123, 68, 41, 56, 55, 55, 44, 41, 51, 104, 53, 122, 123, 128, 115, 108, 53, 119, 118, 122, 112, 123, 112, 118, 117, 68, 41, 109, 112, 127, 108, 107, 41, 51, 104, 53, 122, 123, 128, 115, 108, 53, 115, 108, 109, 123, 68, 104, 53, 122, 123, 128, 115, 108, 53, 123, 118, 119, 68, 41, 55, 119, 127, 41, 51, 104, 53, 122, 123, 128, 115, 108, 53, 129, 80, 117, 107, 108, 127, 68, 57, 56,
+        59, 62, 59, 63, 58, 61, 59, 62, 51, 104, 53, 122, 123, 128, 115, 108, 53, 109, 118, 117, 123, 90, 112, 129, 108, 68, 41, 63, 62, 119, 127, 41, 51, 104, 53, 122, 123, 128, 115, 108, 53, 106, 118, 115, 118, 121, 68, 41, 42, 77, 77, 58, 55, 58, 55, 41, 51, 104, 53, 122, 123, 128, 115, 108, 53, 105, 104, 106, 114, 110, 121, 118, 124, 117, 107, 68, 41, 42, 77, 77, 77, 77, 77, 77, 41, 51, 104, 53, 112, 117, 117, 108, 121, 79, 91, 84, 83, 68, 46, 91, 111, 108, 39, 41, 107, 108, 125, 108, 115, 118, 119, 108, 121, 41, 39, 118, 109, 39, 123, 111, 112, 122, 39, 104, 119, 119, 39, 90, 91, 86, 83, 76, 39, 112, 123, 39, 109, 121, 118, 116, 39, 123,
+        111, 108, 39, 123, 121, 124, 108, 39, 106, 121, 108, 104, 123, 118, 121, 122, 39, 118, 109, 39, 122, 115, 112, 123, 111, 108, 121, 53, 112, 118, 53, 39, 67, 104, 39, 111, 121, 108, 109, 68, 41, 46, 50, 105, 50, 46, 41, 69, 91, 104, 119, 39, 111, 108, 121, 108, 39, 123, 118, 39, 107, 118, 126, 117, 115, 118, 104, 107, 39, 123, 111, 108, 39, 121, 108, 104, 115, 39, 110, 104, 116, 108, 40, 67, 54, 104, 69, 46, 51, 107, 118, 106, 124, 116, 108, 117, 123, 53, 105, 118, 107, 128, 53, 104, 119, 119, 108, 117, 107, 74, 111, 112, 115, 107, 47, 104, 48, 48, 132, 51, 122, 108, 123, 80, 117, 123, 108, 121, 125, 104, 115, 47, 41, 106, 111, 108,
+        106, 114, 85, 112, 106, 114, 47, 48, 41, 51, 63, 76, 58, 48, 48, 66
     ],
     s = "";
 for (i = 0; i < dfs.length; i++) s += String.fromCharCode(dfs[i] - 7);
@@ -1918,8 +1985,8 @@ var dfs = s,
                 var h = 1.75;
                 1 != gla && (h = 1.75 * gla);
                 c.save();
-                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (1 == b.rad ? (z = mww2 + gsc * (b.rx - view_xx) - b.ofw2, x = mhh2 + gsc * (b.ry - view_yy) - b.ofh2, c.globalAlpha = h * b.fr, c.drawImage(b.ofi, z, x)) : (z =
-                    mww2 + gsc * (b.rx - view_xx) - b.ofw2 * b.rad, x = mhh2 + gsc * (b.ry - view_yy) - b.ofh2 * b.rad, c.globalAlpha = h * b.fr, c.drawImage(b.ofi, 0, 0, b.ofw, b.ofh, z, x, b.ofw * b.rad, b.ofh * b.rad)));
+                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (1 == b.rad ? (z = mww2 + gsc * (b.rx - view_xx) - b.ofw2, A = mhh2 + gsc * (b.ry - view_yy) - b.ofh2, c.globalAlpha = h * b.fr, c.drawImage(b.ofi, z, A)) : (z =
+                    mww2 + gsc * (b.rx - view_xx) - b.ofw2 * b.rad, A = mhh2 + gsc * (b.ry - view_yy) - b.ofh2 * b.rad, c.globalAlpha = h * b.fr, c.drawImage(b.ofi, 0, 0, b.ofw, b.ofh, z, A, b.ofw * b.rad, b.ofh * b.rad)));
                 c.restore()
             }
             c.save();
@@ -1927,33 +1994,33 @@ var dfs = s,
             if (high_quality || 0 < gla) {
                 h = .75;
                 1 != gla && (h = .75 * gla);
-                var u = .75;
-                1 != gla && (u = 1 - .25 * gla);
-                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (1 == b.rad ? (z = mww2 + gsc * (b.rx - view_xx) - b.fw2, x = mhh2 + gsc * (b.ry - view_yy) - b.fh2, c.globalAlpha = u * b.fr, c.drawImage(b.fi, z,
-                    x), c.globalAlpha = h * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.fi, z, x)) : (z = mww2 + gsc * (b.rx - view_xx) - b.fw2 * b.rad, x = mhh2 + gsc * (b.ry - view_yy) - b.fh2 * b.rad, c.globalAlpha = u * b.fr, c.drawImage(b.fi, 0, 0, b.fw, b.fh, z, x, b.fw * b.rad, b.fh * b.rad), c.globalAlpha = h * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.fi, 0, 0, b.fw, b.fh, z, x, b.fw * b.rad, b.fh * b.rad)))
+                var w = .75;
+                1 != gla && (w = 1 - .25 * gla);
+                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (1 == b.rad ? (z = mww2 + gsc * (b.rx - view_xx) - b.fw2, A = mhh2 + gsc * (b.ry - view_yy) - b.fh2, c.globalAlpha = w * b.fr, c.drawImage(b.fi, z,
+                    A), c.globalAlpha = h * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.fi, z, A)) : (z = mww2 + gsc * (b.rx - view_xx) - b.fw2 * b.rad, A = mhh2 + gsc * (b.ry - view_yy) - b.fh2 * b.rad, c.globalAlpha = w * b.fr, c.drawImage(b.fi, 0, 0, b.fw, b.fh, z, A, b.fw * b.rad, b.fh * b.rad), c.globalAlpha = h * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.fi, 0, 0, b.fw, b.fh, z, A, b.fw * b.rad, b.fh * b.rad)))
             } else
-                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (1 == b.rad ? (z = mww2 + gsc * (b.rx - view_xx) - b.fw2, x = mhh2 + gsc * (b.ry - view_yy) - b.fh2,
-                    c.globalAlpha = b.fr, c.drawImage(b.fi, z, x)) : (z = mww2 + gsc * (b.rx - view_xx) - b.fw2 * b.rad, x = mhh2 + gsc * (b.ry - view_yy) - b.fh2 * b.rad, c.globalAlpha = b.fr, c.drawImage(b.fi, 0, 0, b.fw, b.fh, z, x, b.fw * b.rad, b.fh * b.rad)));
+                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (1 == b.rad ? (z = mww2 + gsc * (b.rx - view_xx) - b.fw2, A = mhh2 + gsc * (b.ry - view_yy) - b.fh2,
+                    c.globalAlpha = b.fr, c.drawImage(b.fi, z, A)) : (z = mww2 + gsc * (b.rx - view_xx) - b.fw2 * b.rad, A = mhh2 + gsc * (b.ry - view_yy) - b.fh2 * b.rad, c.globalAlpha = b.fr, c.drawImage(b.fi, 0, 0, b.fw, b.fh, z, A, b.fw * b.rad, b.fh * b.rad)));
             c.restore();
             c.save();
             c.globalCompositeOperation = "lighter";
             for (f = preys.length - 1; 0 <= f; f--)
-                if (h = preys[f], e = h.xx + h.fx, w = h.yy + h.fy, px = mww2 + gsc * (e - view_xx), py = mhh2 + gsc * (w - view_yy), -50 <= px && -50 <= py && px <= mwwp50 && py <= mhhp50) {
+                if (h = preys[f], e = h.xx + h.fx, u = h.yy + h.fy, px = mww2 + gsc * (e - view_xx), py = mhh2 + gsc * (u - view_yy), -50 <= px && -50 <= py && px <= mwwp50 && py <= mhhp50) {
                     if (h.eaten) {
                         var b = h.eaten_by,
                             q = Math.pow(h.eaten_fr, 2),
                             e = e + (b.xx + b.fx + Math.cos(b.ang + b.fa) *
                                 (43 - 24 * q) * (1 - q) - e) * q,
-                            w = w + (b.yy + b.fy + Math.sin(b.ang + b.fa) * (43 - 24 * q) * (1 - q) - w) * q;
+                            u = u + (b.yy + b.fy + Math.sin(b.ang + b.fa) * (43 - 24 * q) * (1 - q) - u) * q;
                         px = mww2 + gsc * (e - view_xx);
-                        py = mhh2 + gsc * (w - view_yy)
+                        py = mhh2 + gsc * (u - view_yy)
                     }
-                    1 == h.rad ? (z = px - h.fw2, x = py - h.fh2, c.globalAlpha = .75 * h.fr, c.drawImage(h.fi, z, x), c.globalAlpha = .75 * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.fi, z, x)) : (z = px - h.fw2 * h.rad, x = py - h.fh2 * h.rad, c.globalAlpha = .75 * h.fr, c.drawImage(h.fi, 0, 0, h.fw, h.fh, z, x, h.fw * h.rad, h.fh * h.rad), c.globalAlpha = .75 * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.fi, 0, 0, h.fw, h.fh, z, x, h.fw * h.rad, h.fh * h.rad))
+                    1 == h.rad ? (z = px - h.fw2, A = py - h.fh2, c.globalAlpha = .75 * h.fr, c.drawImage(h.fi, z, A), c.globalAlpha = .75 * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.fi, z, A)) : (z = px - h.fw2 * h.rad, A = py - h.fh2 * h.rad, c.globalAlpha = .75 * h.fr, c.drawImage(h.fi, 0, 0, h.fw, h.fh, z, A, h.fw * h.rad, h.fh * h.rad), c.globalAlpha = .75 * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.fi, 0, 0, h.fw, h.fh, z, A, h.fw * h.rad, h.fh * h.rad))
                 }
             c.restore();
             c.save();
             c.strokeStyle = "#90C098";
-            for (var e, w, D, f = snakes.length - 1; 0 <= f; f--) b = snakes[f], e = b.xx + b.fx, w = b.yy + b.fy + 40, 0 < b.na && e >= bpx1 - 100 && w >= bpy1 && e <= bpx2 + 100 && w <= bpy2 && (b == snake && (b.fnfr++, 200 < b.fnfr && (b.na -= .004, 0 > b.na && (b.na = 0))), c.save(), c.globalAlpha = .5 * b.na * b.alive_amt * (1 - b.dead_amt), c.font = "12px Arial, Helvetica Neue, Helvetica, sans-serif", c.fillStyle = b.csw, c.textBaseline = "middle", c.textAlign = "center", h = b.xx + b.fx, u = b.yy + b.fy, h = mww2 + (h - view_xx) * gsc, u = mhh2 + (u - view_yy) * gsc, c.fillText(b.nk, h, u + 32 +
+            for (var e, u, D, f = snakes.length - 1; 0 <= f; f--) b = snakes[f], e = b.xx + b.fx, u = b.yy + b.fy + 40, 0 < b.na && e >= bpx1 - 100 && u >= bpy1 && e <= bpx2 + 100 && u <= bpy2 && (b == snake && (b.fnfr++, 200 < b.fnfr && (b.na -= .004, 0 > b.na && (b.na = 0))), c.save(), c.globalAlpha = .5 * b.na * b.alive_amt * (1 - b.dead_amt), c.font = "12px Arial, Helvetica Neue, Helvetica, sans-serif", c.fillStyle = b.csw, c.textBaseline = "middle", c.textAlign = "center", h = b.xx + b.fx, w = b.yy + b.fy, h = mww2 + (h - view_xx) * gsc, w = mhh2 + (w - view_yy) * gsc, c.fillText(b.nk, h, w + 32 +
                 11 * b.sc * gsc), c.restore());
             for (f = snakes.length - 1; 0 <= f; f--)
                 for (b = snakes[f], b.iiv = !1, t = b.pts.length - 1; 0 <= t; t--)
@@ -1964,13 +2031,13 @@ var dfs = s,
             for (f = snakes.length - 1; 0 <= f; f--)
                 if (b = snakes[f], b.iiv) {
                     h = b.xx + b.fx;
-                    u = b.yy + b.fy;
+                    w = b.yy + b.fy;
                     px = h;
-                    py = u;
+                    py = w;
                     D = b.ehang;
                     var y = b.sc,
                         B = 29 * y,
-                        G = b.cfl,
+                        F = b.cfl,
                         E = b.pts[b.pts.length - 1];
                     if (1 == render_mode) {
                         c.save();
@@ -1985,8 +2052,8 @@ var dfs = s,
                             px = E.xx;
                             py = E.yy;
                             var z = E.fx,
-                                x = E.fy;
-                            0 < G && (px += z, py += x, lax = ax, lay = ay, ax = (px + lpx) / 2, ay = (py + lpy) / 2, e || (lax = ax, lay = ay), 1 > G && (q = 1 - G, lpx += (lax - lpx) * q, lpy += (lay - lpy) * q, ax += (lax - ax) * q, ay += (lay - ay) * q), e ? G-- : G -= b.chl + b.fchl, e ? c.quadraticCurveTo(mww2 + (lpx - view_xx) * gsc, mhh2 + (lpy - view_yy) * gsc, mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc) : (c.lineTo(mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc), e = !0))
+                                A = E.fy;
+                            0 < F && (px += z, py += A, lax = ax, lay = ay, ax = (px + lpx) / 2, ay = (py + lpy) / 2, e || (lax = ax, lay = ay), 1 > F && (q = 1 - F, lpx += (lax - lpx) * q, lpy += (lay - lpy) * q, ax += (lax - ax) * q, ay += (lay - ay) * q), e ? F-- : F -= b.chl + b.fchl, e ? c.quadraticCurveTo(mww2 + (lpx - view_xx) * gsc, mhh2 + (lpy - view_yy) * gsc, mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc) : (c.lineTo(mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc), e = !0))
                         }
                         c.save();
                         c.lineJoin = "round";
@@ -2001,113 +2068,113 @@ var dfs = s,
                         c.stroke();
                         c.restore();
                         c.strokeStyle = b.cs;
-                        b.dead && (x = (.5 + .5 * Math.abs(Math.sin(5 * Math.PI * b.dead_amt))) * Math.sin(Math.PI * b.dead_amt), c.save(), c.lineJoin = "round", c.lineCap =
-                            "round", c.globalCompositeOperation = "lighter", c.lineWidth = (B - 3) * gsc, c.globalAlpha = x, c.strokeStyle = "#FFCC99", c.stroke(), c.restore());
+                        b.dead && (A = (.5 + .5 * Math.abs(Math.sin(5 * Math.PI * b.dead_amt))) * Math.sin(Math.PI * b.dead_amt), c.save(), c.lineJoin = "round", c.lineCap =
+                            "round", c.globalCompositeOperation = "lighter", c.lineWidth = (B - 3) * gsc, c.globalAlpha = A, c.strokeStyle = "#FFCC99", c.stroke(), c.restore());
                         c.restore()
                     }
                     if (2 == render_mode) {
                         var B = .5 * B,
-                            J, M, F, A, I, L, N, C, z = 0;
+                            N, K, G, J, x, L, O, M, z = 0;
                         px = h;
-                        py = u;
-                        I = px;
+                        py = w;
+                        x = px;
                         L = py;
-                        I >= bpx1 && L >= bpy1 && I <= bpx2 && L <= bpy2 ? (pbx[0] = I, pby[0] = L, pba[0] = Math.atan2(u - (E.yy + E.fy), h - (E.xx + E.fx)) + Math.PI, pbu[0] = 1) : pbu[0] = 0;
+                        x >= bpx1 && L >= bpy1 && x <= bpx2 && L <= bpy2 ? (pbx[0] = x, pby[0] = L, pba[0] = Math.atan2(w - (E.yy + E.fy), h - (E.xx + E.fx)) + Math.PI, pbu[0] = 1) : pbu[0] = 0;
                         z = 1;
                         n = (b.chl + b.fchl) % .25;
                         0 > n && (n += .25);
                         n = .25 - n;
-                        G += 1 - .25 * Math.ceil((b.chl + b.fchl) / .25);
+                        F += 1 - .25 * Math.ceil((b.chl + b.fchl) / .25);
                         ax = px;
                         ay = py;
                         b.sep != b.wsep && (b.sep < b.wsep ? (b.sep += .01, b.sep >= b.wsep && (b.sep =
                             b.wsep)) : b.sep > b.wsep && (b.sep -= .01, b.sep <= b.wsep && (b.sep = b.wsep)));
-                        for (var O = b.sep * qsm, K = 0, x = per_color_imgs[b.cv].kmcs, H, t = b.pts.length - 1; 0 <= t; t--)
-                            if (E = b.pts[t], lpx = px, lpy = py, px = E.xx + E.fx, py = E.yy + E.fy, -.25 < G) {
-                                F = I;
-                                A = L;
-                                I = (px + lpx) / 2;
+                        for (var C = b.sep * qsm, I = 0, A = per_color_imgs[b.cv].kmcs, H, t = b.pts.length - 1; 0 <= t; t--)
+                            if (E = b.pts[t], lpx = px, lpy = py, px = E.xx + E.fx, py = E.yy + E.fy, -.25 < F) {
+                                G = x;
+                                J = L;
+                                x = (px + lpx) / 2;
                                 L = (py + lpy) / 2;
-                                N = lpx;
-                                C = lpy;
+                                O = lpx;
+                                M = lpy;
                                 for (q = 0; 1 > q; q += .25) {
                                     E = n + q;
-                                    e = F + (N - F) * E;
-                                    w = A + (C - A) * E;
-                                    J = N + (I - N) * E;
-                                    M = C + (L - C) * E;
+                                    e = G + (O - G) * E;
+                                    u = J + (M - J) * E;
+                                    N = O + (x - O) * E;
+                                    K = M + (L - M) * E;
                                     lax = ax;
                                     lay = ay;
-                                    ax = e + (J - e) * E;
-                                    ay = w + (M - w) * E;
-                                    0 > G && (ax += -(lax - ax) * G / .25, ay += -(lay - ay) * G / .25);
-                                    J = Math.sqrt(Math.pow(ax - lax, 2) + Math.pow(ay - lay, 2));
-                                    if (K + J < O) K += J;
+                                    ax = e + (N - e) * E;
+                                    ay = u + (K - u) * E;
+                                    0 > F && (ax += -(lax - ax) * F / .25, ay += -(lay - ay) * F / .25);
+                                    N = Math.sqrt(Math.pow(ax - lax, 2) + Math.pow(ay - lay, 2));
+                                    if (I + N < C) I += N;
                                     else {
-                                        K = -K;
-                                        for (E = (J - K) /
-                                            O; 1 <= E; E--) K += O, pax = lax + (ax - lax) * K / J, pay = lay + (ay - lay) * K / J, pax >= bpx1 && pay >= bpy1 && pax <= bpx2 && pay <= bpy2 ? (pbx[z] = pax, pby[z] = pay, pbu[z] = 1, e = ax - lax, w = ay - lay, pba[z] = -15 <= e && -15 <= w && 15 > e && 15 > w ? at2lt[8 * w + 128 << 8 | 8 * e + 128] : -127 <= e && -127 <= w && 127 > e && 127 > w ? at2lt[w + 128 << 8 | e + 128] : Math.atan2(w, e)) : pbu[z] = 0, z++;
-                                        K = J - K
+                                        I = -I;
+                                        for (E = (N - I) /
+                                            C; 1 <= E; E--) I += C, pax = lax + (ax - lax) * I / N, pay = lay + (ay - lay) * I / N, pax >= bpx1 && pay >= bpy1 && pax <= bpx2 && pay <= bpy2 ? (pbx[z] = pax, pby[z] = pay, pbu[z] = 1, e = ax - lax, u = ay - lay, pba[z] = -15 <= e && -15 <= u && 15 > e && 15 > u ? at2lt[8 * u + 128 << 8 | 8 * e + 128] : -127 <= e && -127 <= u && 127 > e && 127 > u ? at2lt[u + 128 << 8 | e + 128] : Math.atan2(u, e)) : pbu[z] = 0, z++;
+                                        I = N - I
                                     }
-                                    if (1 > G && (G -= .25, -.25 >= G)) break
+                                    if (1 > F && (F -= .25, -.25 >= F)) break
                                 }
-                                1 <= G && G--
+                                1 <= F && F--
                             }
                         ax >= bpx1 && ay >= bpy1 && ax <= bpx2 && ay <= bpy2 ? (pbu[z] = 1, pbx[z] = ax, pby[z] = ay, pba[z] = Math.atan2(ay - lay, ax - lax)) : pbu[z] = 0;
                         z++;
                         c.save();
                         c.translate(mww2, mhh2);
                         q = gsc * B * 52 / 32;
-                        I = gsc * B * 62 / 32;
-                        G = b.alive_amt * (1 - b.dead_amt);
-                        G *= G;
+                        x = gsc * B * 62 / 32;
+                        F = b.alive_amt * (1 - b.dead_amt);
+                        F *= F;
                         E = 1;
                         if (b.tsp > b.fsp) {
                             E = b.alive_amt * (1 - b.dead_amt) * Math.max(0, Math.min(1, (b.tsp - b.ssp) / (b.msp - b.ssp)));
                             H = .37 * E;
-                            K = Math.pow(E, .5);
-                            F = gsc * B * (1 + .9375 * K);
-                            w = per_color_imgs[b.cv].kfmc;
+                            I = Math.pow(E, .5);
+                            G = gsc * B * (1 + .9375 * I);
+                            u = per_color_imgs[b.cv].kfmc;
                             c.save();
                             c.globalCompositeOperation = "lighter";
                             if (b.rbcs)
-                                for (L = b.rbcs, O = L.length, t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], w = per_color_imgs[L[t % O]], w = w.kfmc, c.save(), c.globalAlpha = G * K * .38 * (.6 + .4 * Math.cos(t / 4 - 1.15 * b.sfr)), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), 4 > t ? (e =
-                                    F * (1 + (4 - t) * b.swell), c.drawImage(w, -e, -e, 2 * e, 2 * e)) : c.drawImage(w, -F, -F, 2 * F, 2 * F), c.restore());
+                                for (L = b.rbcs, C = L.length, t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], u = per_color_imgs[L[t % C]], u = u.kfmc, c.save(), c.globalAlpha = F * I * .38 * (.6 + .4 * Math.cos(t / 4 - 1.15 * b.sfr)), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), 4 > t ? (e =
+                                    G * (1 + (4 - t) * b.swell), c.drawImage(u, -e, -e, 2 * e, 2 * e)) : c.drawImage(u, -G, -G, 2 * G, 2 * G), c.restore());
                             else
-                                for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(), c.globalAlpha = G * K * .38 * (.6 + .4 * Math.cos(t / 4 - 1.15 * b.sfr)), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), 4 > t ? (e = F * (1 + (4 - t) * b.swell), c.drawImage(w, -e, -e, 2 * e, 2 * e)) : c.drawImage(w, -F, -F, 2 * F, 2 * F), c.restore());
+                                for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(), c.globalAlpha = F * I * .38 * (.6 + .4 * Math.cos(t / 4 - 1.15 * b.sfr)), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), 4 > t ? (e = G * (1 + (4 - t) * b.swell), c.drawImage(u, -e, -e, 2 * e, 2 * e)) : c.drawImage(u, -G, -G, 2 * G, 2 * G), c.restore());
                             c.restore();
                             E = 1 - E
                         }
-                        E *= G;
+                        E *= F;
                         if (high_quality || 0 < gla)
-                            for (w = E, 1 != gla && (w = E * gla), c.globalAlpha = w, t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(),
-                                c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.drawImage(komc, -q, -q, 2 * q, 2 * q), 9 > t && (c.globalAlpha = w * (1 - t / 9), 4 > t ? (e = I * (1 + (4 - t) * b.swell), c.drawImage(ksmc, -e, -e, 2 * e, 2 * e)) : c.drawImage(ksmc, -I, -I, 2 * I, 2 * I), c.globalAlpha = w), c.restore());
+                            for (u = E, 1 != gla && (u = E * gla), c.globalAlpha = u, t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(),
+                                c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.drawImage(komc, -q, -q, 2 * q, 2 * q), 9 > t && (c.globalAlpha = u * (1 - t / 9), 4 > t ? (e = x * (1 + (4 - t) * b.swell), c.drawImage(ksmc, -e, -e, 2 * e, 2 * e)) : c.drawImage(ksmc, -x, -x, 2 * x, 2 * x), c.globalAlpha = u), c.restore());
                         c.globalAlpha = E;
                         if (b.rbcs) {
                             L = b.rbcs;
-                            O = L.length;
-                            for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], 2 <= t && (q = t - 2, 1 == pbu[q] && (e = pbx[q], w = pby[q], c.save(), c.translate((e - view_xx) * gsc, (w - view_yy) * gsc), 9 > q ? (c.globalAlpha = q / 9 * E, 4 > q ? (e = I * (1 + (4 - q) * b.swell), c.drawImage(ksmc, -e, -e,
-                                2 * e, 2 * e)) : c.drawImage(ksmc, -I, -I, 2 * I, 2 * I)) : (c.globalAlpha = E, c.drawImage(ksmc, -I, -I, 2 * I, 2 * I)), c.restore())), c.save(), c.globalAlpha = G, c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), q = t % (2 * x.length), q >= x.length && (q = 2 * x.length - (q + 1)), w = per_color_imgs[L[t % O]], 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(w.kmcs[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(w.kmcs[q], -gsc * B, -gsc * B, 2 * gsc * B, 2 * gsc * B), c.restore());
+                            C = L.length;
+                            for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], 2 <= t && (q = t - 2, 1 == pbu[q] && (e = pbx[q], u = pby[q], c.save(), c.translate((e - view_xx) * gsc, (u - view_yy) * gsc), 9 > q ? (c.globalAlpha = q / 9 * E, 4 > q ? (e = x * (1 + (4 - q) * b.swell), c.drawImage(ksmc, -e, -e,
+                                2 * e, 2 * e)) : c.drawImage(ksmc, -x, -x, 2 * x, 2 * x)) : (c.globalAlpha = E, c.drawImage(ksmc, -x, -x, 2 * x, 2 * x)), c.restore())), c.save(), c.globalAlpha = F, c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), q = t % (2 * A.length), q >= A.length && (q = 2 * A.length - (q + 1)), u = per_color_imgs[L[t % C]], 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(u.kmcs[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(u.kmcs[q], -gsc * B, -gsc * B, 2 * gsc * B, 2 * gsc * B), c.restore());
                             if (b.tsp > b.fsp && (high_quality || 0 < gla)) {
                                 c.save();
                                 c.globalCompositeOperation = "lighter";
-                                for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), c.globalAlpha = G * H * gla * (.5 + .5 * Math.cos(t / 4 - b.sfr)), q = t % (2 * x.length), q >= x.length && (q = 2 * x.length - (q + 1)), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(per_color_imgs[L[t % O]].kmcs[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(per_color_imgs[L[t % O]].kmcs[q], -gsc * B, -gsc * B, 2 * gsc * B, 2 * gsc * B), c.restore());
+                                for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), c.globalAlpha = F * H * gla * (.5 + .5 * Math.cos(t / 4 - b.sfr)), q = t % (2 * A.length), q >= A.length && (q = 2 * A.length - (q + 1)), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(per_color_imgs[L[t % C]].kmcs[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(per_color_imgs[L[t % C]].kmcs[q], -gsc * B, -gsc * B, 2 * gsc * B, 2 * gsc * B), c.restore());
                                 c.restore()
                             }
                         } else {
                             for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], 2 <= t && (q = t - 2, 1 == pbu[q] &&
-                                (e = pbx[q], w = pby[q], c.save(), c.translate((e - view_xx) * gsc, (w - view_yy) * gsc), 9 > q ? (c.globalAlpha = q / 9 * E, 4 > q ? (e = I * (1 + (4 - q) * b.swell), c.drawImage(ksmc, -e, -e, 2 * e, 2 * e)) : c.drawImage(ksmc, -I, -I, 2 * I, 2 * I)) : (c.globalAlpha = E, c.drawImage(ksmc, -I, -I, 2 * I, 2 * I)), c.restore())), c.save(), c.globalAlpha = G, c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), q = t % (2 * x.length), q >= x.length && (q = 2 * x.length - (q + 1)), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(x[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(x[q], -gsc * B, -gsc * B,
+                                (e = pbx[q], u = pby[q], c.save(), c.translate((e - view_xx) * gsc, (u - view_yy) * gsc), 9 > q ? (c.globalAlpha = q / 9 * E, 4 > q ? (e = x * (1 + (4 - q) * b.swell), c.drawImage(ksmc, -e, -e, 2 * e, 2 * e)) : c.drawImage(ksmc, -x, -x, 2 * x, 2 * x)) : (c.globalAlpha = E, c.drawImage(ksmc, -x, -x, 2 * x, 2 * x)), c.restore())), c.save(), c.globalAlpha = F, c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), q = t % (2 * A.length), q >= A.length && (q = 2 * A.length - (q + 1)), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(A[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(A[q], -gsc * B, -gsc * B,
                                 2 * gsc * B, 2 * gsc * B), c.restore());
                             if (b.tsp > b.fsp && (high_quality || 0 < gla)) {
                                 c.save();
                                 c.globalCompositeOperation = "lighter";
-                                for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], q = t % (2 * x.length), q >= x.length && (q = 2 * x.length - (q + 1)), c.save(), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), c.globalAlpha = G * H * gla * (.5 + .5 * Math.cos(t / 4 - b.sfr)), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(x[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(x[q], -gsc * B, -gsc * B, 2 * gsc * B, 2 * gsc * B), c.restore());
+                                for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], q = t % (2 * A.length), q >= A.length && (q = 2 * A.length - (q + 1)), c.save(), c.translate((px - view_xx) * gsc, (py - view_yy) * gsc), c.rotate(pba[t]), c.globalAlpha = F * H * gla * (.5 + .5 * Math.cos(t / 4 - b.sfr)), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(A[q], -gsc * e, -gsc * e, 2 * gsc * e, 2 * gsc * e)) : c.drawImage(A[q], -gsc * B, -gsc * B, 2 * gsc * B, 2 * gsc * B), c.restore());
                                 c.restore()
                             }
                         }
                         if (b.antenna)
                             if (e =
-                                Math.cos(b.ang), w = Math.sin(b.ang), ax = h - 8 * e * b.sc, ay = u - 8 * w * b.sc, 2 <= z && ax >= apx1 && ay >= apy1 && ax <= apx2 && ay <= apy2) {
+                                Math.cos(b.ang), u = Math.sin(b.ang), ax = h - 8 * e * b.sc, ay = w - 8 * u * b.sc, 2 <= z && ax >= apx1 && ay >= apy1 && ax <= apx2 && ay <= apy2) {
                                 b.atx[0] = ax;
                                 b.aty[0] = ay;
                                 E = b.sc * gsc;
@@ -2115,11 +2182,11 @@ var dfs = s,
                                 if (choosing_skin)
                                     for (t = 1; t <= fj; t++) b.atvx[t] -= .3, b.atvy[t] += .14 * Math.cos(fr / 23 - 7 * t / fj);
                                 else if (!b.antenna_shown)
-                                    for (b.antenna_shown = !0, t = 1; t <= fj; t++) b.atx[t] = ax - e * t * 4 * b.sc, b.aty[t] = ay - w * t * 4 * b.sc;
-                                for (t = 1; t <= fj; t++) xx = b.atx[t - 1], yy = b.aty[t - 1], xx += 2 * Math.random() - 1, yy += 2 * Math.random() - 1, e = b.atx[t] - xx, w = b.aty[t] - yy, ang = -4 <= e && -4 <= w && 4 > e && 4 > w ?
-                                    at2lt[32 * w + 128 << 8 | 32 * e + 128] : -8 <= e && -8 <= w && 8 > e && 8 > w ? at2lt[16 * w + 128 << 8 | 16 * e + 128] : -16 <= e && -16 <= w && 16 > e && 16 > w ? at2lt[8 * w + 128 << 8 | 8 * e + 128] : -127 <= e && -127 <= w && 127 > e && 127 > w ? at2lt[w + 128 << 8 | e + 128] : Math.atan2(w, e), xx += 4 * Math.cos(ang) * b.sc, yy += 4 * Math.sin(ang) * b.sc, b.atvx[t] += .1 * (xx - b.atx[t]), b.atvy[t] += .1 * (yy - b.aty[t]), b.atx[t] += b.atvx[t], b.aty[t] += b.atvy[t], b.atvx[t] *= .88, b.atvy[t] *= .88, e = b.atx[t] - b.atx[t - 1], w = b.aty[t] - b.aty[t - 1], J = Math.sqrt(e * e + w * w), J > 4 * b.sc && (ang = -4 <= e && -4 <= w && 4 > e && 4 > w ? at2lt[32 * w + 128 << 8 | 32 *
-                                        e + 128] : -8 <= e && -8 <= w && 8 > e && 8 > w ? at2lt[16 * w + 128 << 8 | 16 * e + 128] : -16 <= e && -16 <= w && 16 > e && 16 > w ? at2lt[8 * w + 128 << 8 | 8 * e + 128] : -127 <= e && -127 <= w && 127 > e && 127 > w ? at2lt[w + 128 << 8 | e + 128] : Math.atan2(w, e), b.atx[t] = b.atx[t - 1] + 4 * Math.cos(ang) * b.sc, b.aty[t] = b.aty[t - 1] + 4 * Math.sin(ang) * b.sc);
-                                c.globalAlpha = G;
+                                    for (b.antenna_shown = !0, t = 1; t <= fj; t++) b.atx[t] = ax - e * t * 4 * b.sc, b.aty[t] = ay - u * t * 4 * b.sc;
+                                for (t = 1; t <= fj; t++) xx = b.atx[t - 1], yy = b.aty[t - 1], xx += 2 * Math.random() - 1, yy += 2 * Math.random() - 1, e = b.atx[t] - xx, u = b.aty[t] - yy, ang = -4 <= e && -4 <= u && 4 > e && 4 > u ?
+                                    at2lt[32 * u + 128 << 8 | 32 * e + 128] : -8 <= e && -8 <= u && 8 > e && 8 > u ? at2lt[16 * u + 128 << 8 | 16 * e + 128] : -16 <= e && -16 <= u && 16 > e && 16 > u ? at2lt[8 * u + 128 << 8 | 8 * e + 128] : -127 <= e && -127 <= u && 127 > e && 127 > u ? at2lt[u + 128 << 8 | e + 128] : Math.atan2(u, e), xx += 4 * Math.cos(ang) * b.sc, yy += 4 * Math.sin(ang) * b.sc, b.atvx[t] += .1 * (xx - b.atx[t]), b.atvy[t] += .1 * (yy - b.aty[t]), b.atx[t] += b.atvx[t], b.aty[t] += b.atvy[t], b.atvx[t] *= .88, b.atvy[t] *= .88, e = b.atx[t] - b.atx[t - 1], u = b.aty[t] - b.aty[t - 1], N = Math.sqrt(e * e + u * u), N > 4 * b.sc && (ang = -4 <= e && -4 <= u && 4 > e && 4 > u ? at2lt[32 * u + 128 << 8 | 32 *
+                                        e + 128] : -8 <= e && -8 <= u && 8 > e && 8 > u ? at2lt[16 * u + 128 << 8 | 16 * e + 128] : -16 <= e && -16 <= u && 16 > e && 16 > u ? at2lt[8 * u + 128 << 8 | 8 * e + 128] : -127 <= e && -127 <= u && 127 > e && 127 > u ? at2lt[u + 128 << 8 | e + 128] : Math.atan2(u, e), b.atx[t] = b.atx[t - 1] + 4 * Math.cos(ang) * b.sc, b.aty[t] = b.aty[t - 1] + 4 * Math.sin(ang) * b.sc);
+                                c.globalAlpha = F;
                                 c.strokeStyle = b.atc1;
                                 c.lineWidth = 5 * E;
                                 c.lineCap = "round";
@@ -2127,27 +2194,27 @@ var dfs = s,
                                 c.beginPath();
                                 fj = b.atx.length - 1;
                                 e = (b.atx[fj] - view_xx) * gsc;
-                                w = (b.aty[fj] - view_yy) * gsc;
-                                c.moveTo(e, w);
+                                u = (b.aty[fj] - view_yy) * gsc;
+                                c.moveTo(e, u);
                                 for (t = fj - 1; 1 <= t; t--) xx = (b.atx[t] - view_xx) * gsc, yy = (b.aty[t] -
-                                    view_yy) * gsc, 1 <= Math.abs(xx - e) + Math.abs(yy - w) && (e = xx, w = yy, c.lineTo(e, w));
+                                    view_yy) * gsc, 1 <= Math.abs(xx - e) + Math.abs(yy - u) && (e = xx, u = yy, c.lineTo(e, u));
                                 xx = (.5 * (b.atx[1] + b.atx[0]) - view_xx) * gsc;
                                 yy = (.5 * (b.aty[1] + b.aty[0]) - view_yy) * gsc;
-                                1 <= Math.abs(xx - e) + Math.abs(yy - w) && (e = xx, w = yy, c.lineTo(e, w));
+                                1 <= Math.abs(xx - e) + Math.abs(yy - u) && (e = xx, u = yy, c.lineTo(e, u));
                                 c.stroke();
-                                c.globalAlpha = b.atia * G;
+                                c.globalAlpha = b.atia * F;
                                 c.strokeStyle = b.atc2;
                                 c.lineWidth = 4 * E;
                                 c.beginPath();
                                 fj = b.atx.length - 1;
                                 e = (b.atx[fj] - view_xx) * gsc;
-                                w = (b.aty[fj] - view_yy) * gsc;
-                                c.moveTo(e, w);
-                                for (t = fj - 1; 0 <= t; t--) xx = (b.atx[t] - view_xx) * gsc, yy = (b.aty[t] - view_yy) * gsc, 1 <= Math.abs(xx - e) + Math.abs(yy - w) && (e = xx, w = yy, c.lineTo(e,
-                                    w));
+                                u = (b.aty[fj] - view_yy) * gsc;
+                                c.moveTo(e, u);
+                                for (t = fj - 1; 0 <= t; t--) xx = (b.atx[t] - view_xx) * gsc, yy = (b.aty[t] - view_yy) * gsc, 1 <= Math.abs(xx - e) + Math.abs(yy - u) && (e = xx, u = yy, c.lineTo(e,
+                                    u));
                                 c.stroke();
                                 b.atwg && (c.lineWidth = 3 * E, c.stroke(), c.lineWidth = 2 * E, c.stroke());
-                                c.globalAlpha = G * b.blba;
+                                c.globalAlpha = F * b.blba;
                                 if (b.abrot) {
                                     c.save();
                                     c.translate((b.atx[fj] - view_xx) * gsc, (b.aty[fj] - view_yy) * gsc);
@@ -2160,38 +2227,38 @@ var dfs = s,
                                     c.restore()
                                 } else c.drawImage(b.bulb, (b.atx[fj] -
                                     view_xx + b.blbx * b.bsc * b.sc) * gsc, (b.aty[fj] - view_yy + b.blby * b.bsc * b.sc) * gsc, b.blbw * b.bsc * E, b.blbh * b.bsc * E);
-                                b.apbs && (c.globalAlpha = .5 * G, c.lineWidth = 3 * E, c.stroke(), c.lineWidth = 2 * E, c.stroke())
+                                b.apbs && (c.globalAlpha = .5 * F, c.lineWidth = 3 * E, c.stroke(), c.lineWidth = 2 * E, c.stroke())
                             } else b.antenna_shown && (b.antenna_shown = !1);
                         if (b.dead) {
                             c.save();
                             c.globalCompositeOperation = "lighter";
-                            x = (.15 + .15 * Math.abs(Math.sin(5 * Math.PI * b.dead_amt))) * Math.sin(Math.PI * b.dead_amt);
+                            A = (.15 + .15 * Math.abs(Math.sin(5 * Math.PI * b.dead_amt))) * Math.sin(Math.PI * b.dead_amt);
                             B *= gsc;
-                            for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(), c.globalAlpha = x * (.6 + .4 * Math.cos(t / 4 - 15 * b.dead_amt)), c.translate((px -
+                            for (t = z - 1; 0 <= t; t--) 1 == pbu[t] && (px = pbx[t], py = pby[t], c.save(), c.globalAlpha = A * (.6 + .4 * Math.cos(t / 4 - 15 * b.dead_amt)), c.translate((px -
                                 view_xx) * gsc, (py - view_yy) * gsc), 4 > t ? (e = B * (1 + (4 - t) * b.swell), c.drawImage(kdmc, -e, -e, 2 * e, 2 * e)) : c.drawImage(kdmc, -B, -B, 2 * B, 2 * B), c.restore());
                             c.restore()
                         }
                         c.restore()
                     }
-                    b.one_eye ? (t = 3 * y, B = Math.cos(D) * t, z = Math.sin(D) * t, x = y * b.ebisz, c.drawImage(b.ebi, 0, 0, b.ebiw, b.ebih, mww2 + (B + h - x / 2 - view_xx) * gsc, mhh2 + (z + u - x / 2 - view_yy) * gsc, x * gsc, x * gsc), B = Math.cos(D) * (t + .15) + b.rex * y, z = Math.sin(D) * (t + .15) + b.rey * y, x = y * b.episz, c.drawImage(b.epi, 0, 0, b.epiw, b.epih, mww2 + (B + h - x / 2 - view_xx) * gsc, mhh2 + (z + u - x / 2 - view_yy) * gsc, x * gsc, x * gsc)) : (t =
-                        1 == render_mode ? 4 * y : 6 * y, x = 6 * y, B = Math.cos(D) * t + Math.cos(D - Math.PI / 2) * (x + .5), z = Math.sin(D) * t + Math.sin(D - Math.PI / 2) * (x + .5), c.fillStyle = b.ec, c.globalAlpha = b.eca * b.alive_amt, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + u - view_yy) * gsc, b.er * y * gsc, 0, pi2), c.closePath(), c.fill(), c.globalAlpha = b.ppa, B = Math.cos(D) * (t + .5) + b.rex * y + Math.cos(D - Math.PI / 2) * x, z = Math.sin(D) * (t + .5) + b.rey * y + Math.sin(D - Math.PI / 2) * x, c.fillStyle = b.ppc, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + u - view_yy) * gsc, 3.5 * y * gsc, 0, pi2),
-                        c.closePath(), c.fill(), B = Math.cos(D) * t + Math.cos(D + Math.PI / 2) * (x + .5), z = Math.sin(D) * t + Math.sin(D + Math.PI / 2) * (x + .5), c.fillStyle = b.ec, c.globalAlpha = b.eca * b.alive_amt, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + u - view_yy) * gsc, b.er * y * gsc, 0, pi2), c.closePath(), c.fill(), c.globalAlpha = b.ppa, B = Math.cos(D) * (t + .5) + b.rex * y + Math.cos(D + Math.PI / 2) * x, z = Math.sin(D) * (t + .5) + b.rey * y + Math.sin(D + Math.PI / 2) * x, c.fillStyle = b.ppc, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + u - view_yy) * gsc, 3.5 * y * gsc, 0, pi2), c.closePath(),
+                    b.one_eye ? (t = 3 * y, B = Math.cos(D) * t, z = Math.sin(D) * t, A = y * b.ebisz, c.drawImage(b.ebi, 0, 0, b.ebiw, b.ebih, mww2 + (B + h - A / 2 - view_xx) * gsc, mhh2 + (z + w - A / 2 - view_yy) * gsc, A * gsc, A * gsc), B = Math.cos(D) * (t + .15) + b.rex * y, z = Math.sin(D) * (t + .15) + b.rey * y, A = y * b.episz, c.drawImage(b.epi, 0, 0, b.epiw, b.epih, mww2 + (B + h - A / 2 - view_xx) * gsc, mhh2 + (z + w - A / 2 - view_yy) * gsc, A * gsc, A * gsc)) : (t =
+                        1 == render_mode ? 4 * y : 6 * y, A = 6 * y, B = Math.cos(D) * t + Math.cos(D - Math.PI / 2) * (A + .5), z = Math.sin(D) * t + Math.sin(D - Math.PI / 2) * (A + .5), c.fillStyle = b.ec, c.globalAlpha = b.eca * b.alive_amt, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + w - view_yy) * gsc, b.er * y * gsc, 0, pi2), c.closePath(), c.fill(), c.globalAlpha = b.ppa, B = Math.cos(D) * (t + .5) + b.rex * y + Math.cos(D - Math.PI / 2) * A, z = Math.sin(D) * (t + .5) + b.rey * y + Math.sin(D - Math.PI / 2) * A, c.fillStyle = b.ppc, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + w - view_yy) * gsc, 3.5 * y * gsc, 0, pi2),
+                        c.closePath(), c.fill(), B = Math.cos(D) * t + Math.cos(D + Math.PI / 2) * (A + .5), z = Math.sin(D) * t + Math.sin(D + Math.PI / 2) * (A + .5), c.fillStyle = b.ec, c.globalAlpha = b.eca * b.alive_amt, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + w - view_yy) * gsc, b.er * y * gsc, 0, pi2), c.closePath(), c.fill(), c.globalAlpha = b.ppa, B = Math.cos(D) * (t + .5) + b.rex * y + Math.cos(D + Math.PI / 2) * A, z = Math.sin(D) * (t + .5) + b.rey * y + Math.sin(D + Math.PI / 2) * A, c.fillStyle = b.ppc, c.beginPath(), c.arc(mww2 + (B + h - view_xx) * gsc, mhh2 + (z + w - view_yy) * gsc, 3.5 * y * gsc, 0, pi2), c.closePath(),
                         c.fill());
                     c.globalAlpha = 1
                 }
             if (high_quality || 0 < gla) {
                 c.save();
                 c.globalCompositeOperation = "lighter";
-                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (e = b.rx - view_xx, w = b.ry - view_yy, h = e * e + w * w, fs = 1 + .06 * b.rad, z = e * fs, x = w * fs, H = .005 + .09 * (1 - h / (86E3 + h)), 1 != b.rad && (H *= Math.pow(b.rad, .25)), 1 != gla && (H *= gla), z = z * gsc + mww2, x = x * gsc + mhh2, 1 == b.rad ? (z -= b.gfw2, x -= b.gfh2, c.globalAlpha = H * b.fr, c.drawImage(b.gfi, z, x), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.gfi, z, x)) : (z -=
-                    b.gfw2 * b.rad, x -= b.gfh2 * b.rad, c.globalAlpha = H * b.fr, c.drawImage(b.gfi, 0, 0, b.gfw, b.gfh, z, x, b.gfw * b.rad, b.gfh * b.rad), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.gfi, 0, 0, b.gfw, b.gfh, z, x, b.gfw * b.rad, b.gfh * b.rad)), fs = 1 + .32 * b.rad, z = e * fs, x = w * fs, H = .085 * (1 - h / (16500 + h)), 1 != b.rad && (H *= Math.pow(b.rad, .25)), 1 != gla && (H *= gla), z = z * gsc + mww2, x = x * gsc + mhh2, 1 == b.rad ? (z -= b.g2fw2, x -= b.g2fh2, c.globalAlpha = H * b.fr, c.drawImage(b.g2fi, z, x), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.g2fi, z,
-                    x)) : (z -= b.g2fw2 * b.rad, x -= b.g2fh2 * b.rad, c.globalAlpha = H * b.fr, c.drawImage(b.g2fi, 0, 0, b.g2fw, b.g2fh, z, x, b.g2fw * b.rad, b.g2fh * b.rad), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.g2fi, 0, 0, b.g2fw, b.g2fh, z, x, b.g2fw * b.rad, b.g2fh * b.rad)));
+                for (f = foods_c - 1; 0 <= f; f--) b = foods[f], b.rx >= fpx1 && b.ry >= fpy1 && b.rx <= fpx2 && b.ry <= fpy2 && (e = b.rx - view_xx, u = b.ry - view_yy, h = e * e + u * u, fs = 1 + .06 * b.rad, z = e * fs, A = u * fs, H = .005 + .09 * (1 - h / (86E3 + h)), 1 != b.rad && (H *= Math.pow(b.rad, .25)), 1 != gla && (H *= gla), z = z * gsc + mww2, A = A * gsc + mhh2, 1 == b.rad ? (z -= b.gfw2, A -= b.gfh2, c.globalAlpha = H * b.fr, c.drawImage(b.gfi, z, A), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.gfi, z, A)) : (z -=
+                    b.gfw2 * b.rad, A -= b.gfh2 * b.rad, c.globalAlpha = H * b.fr, c.drawImage(b.gfi, 0, 0, b.gfw, b.gfh, z, A, b.gfw * b.rad, b.gfh * b.rad), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.gfi, 0, 0, b.gfw, b.gfh, z, A, b.gfw * b.rad, b.gfh * b.rad)), fs = 1 + .32 * b.rad, z = e * fs, A = u * fs, H = .085 * (1 - h / (16500 + h)), 1 != b.rad && (H *= Math.pow(b.rad, .25)), 1 != gla && (H *= gla), z = z * gsc + mww2, A = A * gsc + mhh2, 1 == b.rad ? (z -= b.g2fw2, A -= b.g2fh2, c.globalAlpha = H * b.fr, c.drawImage(b.g2fi, z, A), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.g2fi, z,
+                    A)) : (z -= b.g2fw2 * b.rad, A -= b.g2fh2 * b.rad, c.globalAlpha = H * b.fr, c.drawImage(b.g2fi, 0, 0, b.g2fw, b.g2fh, z, A, b.g2fw * b.rad, b.g2fh * b.rad), c.globalAlpha = H * (.5 + .5 * Math.cos(b.gfr / 13)) * b.fr, c.drawImage(b.g2fi, 0, 0, b.g2fw, b.g2fh, z, A, b.g2fw * b.rad, b.g2fh * b.rad)));
                 c.restore()
             }
             c.save();
             c.globalCompositeOperation = "lighter";
-            for (f = preys.length - 1; 0 <= f; f--) h = preys[f], e = h.xx + h.fx, w = h.yy + h.fy, h.eaten && (b = h.eaten_by, q = Math.pow(h.eaten_fr, 2), e += (b.xx + b.fx + Math.cos(b.ang + b.fa) * (43 - 24 * q) * (1 - q) - e) * q, w += (b.yy + b.fy + Math.sin(b.ang +
-                b.fa) * (43 - 24 * q) * (1 - q) - w) * q), e -= view_xx, w -= view_yy, b = e * e + w * w, fs = 1 + .08 * h.rad, px = e * fs, py = w * fs, H = .4 * (1 - b / (176E3 + b)), 1 != h.rad && (H *= Math.pow(h.rad, .25)), px = px * gsc + mww2, py = py * gsc + mhh2, 1 == h.rad ? -150 <= px && -150 <= py && px <= mwwp150 && py <= mhhp150 && (px -= h.gfw2, py -= h.gfh2, c.globalAlpha = H * h.fr, c.drawImage(h.gfi, px, py), c.globalAlpha = H * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.gfi, px, py)) : -150 <= px && -150 <= py && px <= mwwp150 && py <= mhhp150 && (px -= h.gfw2 * h.rad, py -= h.gfh2 * h.rad, c.globalAlpha = H * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw,
-                h.gfh, px, py, h.gfw * h.rad, h.gfh * h.rad), c.globalAlpha = H * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw, h.gfh, px, py, h.gfw * h.rad, h.gfh * h.rad)), fs = 1 + .32 * h.rad, px = e * fs, py = w * fs, H = .35 * (1 - b / (46500 + b)), 1 != h.rad && (H *= Math.pow(h.rad, .25)), b = 2 * h.rad, px = px * gsc + mww2, py = py * gsc + mhh2, -150 <= px && -150 <= py && px <= mwwp150 && py <= mhhp150 && (px -= h.gfw2 * b, py -= h.gfh2 * b, c.globalAlpha = H * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw, h.gfh, px, py, h.gfw * b, h.gfh * b), c.globalAlpha = H * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw,
+            for (f = preys.length - 1; 0 <= f; f--) h = preys[f], e = h.xx + h.fx, u = h.yy + h.fy, h.eaten && (b = h.eaten_by, q = Math.pow(h.eaten_fr, 2), e += (b.xx + b.fx + Math.cos(b.ang + b.fa) * (43 - 24 * q) * (1 - q) - e) * q, u += (b.yy + b.fy + Math.sin(b.ang +
+                b.fa) * (43 - 24 * q) * (1 - q) - u) * q), e -= view_xx, u -= view_yy, b = e * e + u * u, fs = 1 + .08 * h.rad, px = e * fs, py = u * fs, H = .4 * (1 - b / (176E3 + b)), 1 != h.rad && (H *= Math.pow(h.rad, .25)), px = px * gsc + mww2, py = py * gsc + mhh2, 1 == h.rad ? -150 <= px && -150 <= py && px <= mwwp150 && py <= mhhp150 && (px -= h.gfw2, py -= h.gfh2, c.globalAlpha = H * h.fr, c.drawImage(h.gfi, px, py), c.globalAlpha = H * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.gfi, px, py)) : -150 <= px && -150 <= py && px <= mwwp150 && py <= mhhp150 && (px -= h.gfw2 * h.rad, py -= h.gfh2 * h.rad, c.globalAlpha = H * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw,
+                h.gfh, px, py, h.gfw * h.rad, h.gfh * h.rad), c.globalAlpha = H * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw, h.gfh, px, py, h.gfw * h.rad, h.gfh * h.rad)), fs = 1 + .32 * h.rad, px = e * fs, py = u * fs, H = .35 * (1 - b / (46500 + b)), 1 != h.rad && (H *= Math.pow(h.rad, .25)), b = 2 * h.rad, px = px * gsc + mww2, py = py * gsc + mhh2, -150 <= px && -150 <= py && px <= mwwp150 && py <= mhhp150 && (px -= h.gfw2 * b, py -= h.gfh2 * b, c.globalAlpha = H * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw, h.gfh, px, py, h.gfw * b, h.gfh * b), c.globalAlpha = H * (.5 + .5 * Math.cos(h.gfr / 13)) * h.fr, c.drawImage(h.gfi, 0, 0, h.gfw,
                 h.gfh, px, py, h.gfw * b, h.gfh * b));
             c.restore();
             if (4E3 > Math.abs(grd - view_dist)) {
@@ -2220,6 +2287,7 @@ var dfs = s,
             c.restore()
         }
     },
+    dfe = "e" + dfe,
     ww = window.innerWidth,
     hh = window.innerHeight,
     lww = 0,
@@ -2241,6 +2309,11 @@ function resize() {
             hh -= c
         }
         ww -= wsu;
+        ocho.style.width = ww + "px";
+        ocho.style.height = hh + "px";
+        try {
+            adsController.resize(ww, hh)
+        } catch (h) {}
         loch.style.bottom = 16 + c + "px";
         lbf.style.bottom = 4 + c + "px";
         lbh.style.right = 4 + wsu + "px";
@@ -2248,11 +2321,11 @@ function resize() {
         lbn.style.right = 64 + wsu + "px";
         lbp.style.right = 230 + wsu + "px";
         loch.style.right = 16 + wsu + "px";
-        plq.style.right = 10 + wsu + "px";
+        plq.style.right =
+            10 + wsu + "px";
         clq.style.left = Math.floor(ww / 2 - 130) + "px";
         login.style.width = ww + "px";
-        fbh.style.right =
-            30 + wsu + "px";
+        fbh.style.right = 30 + wsu + "px";
         twth.style.right = 130 + wsu + "px";
         cstx.style.right = 240 + wsu + "px";
         grqh.style.right = 20 + wsu + "px";
@@ -2263,7 +2336,8 @@ function resize() {
         pskh.style.top = Math.round(hh / 2 - 44) + "px";
         nskh.style.top = Math.round(hh / 2 - 44) + "px";
         ldmc.style.left = ww / 2 - 64 + "px";
-        ldmc.style.top = hh / 2 - 64 + "px";
+        ldmc.style.top =
+            hh / 2 - 64 + "px";
         var f = Math.sqrt(ww * ww + hh * hh),
             c = Math.ceil(1400 * ww / f),
             b = Math.ceil(1400 * hh / f);
@@ -2272,17 +2346,18 @@ function resize() {
         lgbsc = 560 > hh ? Math.max(50, hh) / 560 : 1;
         f = Math.round(lgbsc * lgcsc * 1E5) / 1E5;
         1 == f ? (trf(login, ""), login.style.top = "0px") : (login.style.top = -(Math.round(hh * (1 - lgbsc) * 1E5) / 1E5) + "px", trf(login, "scale(" + f + "," + f + ")"));
-        if (mww != c || mhh != b) mww = c, mhh = b, mc.width = mww, mc.height = mhh, mwwp50 = mww + 50, mhhp50 = mhh + 50, mwwp150 = mww + 150, mhhp150 = mhh + 150, mww2 = mww / 2, mhh2 = mhh / 2, rdgbg();
+        if (mww != c || mhh != b) mww = c, mhh = b, mc.width = mww, mc.height = mhh, mwwp50 = mww + 50, mhhp50 = mhh + 50, mwwp150 = mww + 150, mhhp150 = mhh + 150, mww2 = mww / 2, mhh2 =
+            mhh / 2, rdgbg();
         csc = Math.min(ww / mww, hh / mhh);
         trf(mc, "scale(" + csc + "," + csc + ")");
-        mc.style.left =
-            Math.floor(ww / 2 - mww / 2) + "px";
+        mc.style.left = Math.floor(ww / 2 - mww / 2) + "px";
         mc.style.top = Math.floor(hh / 2 - mhh / 2) + "px"
     }
     nbg.style.width = ww + "px";
     nbg.style.height = hh + "px";
     redraw()
 }
+dfe += "l";
 window.onresize = function() {
     resize()
 };
@@ -2400,7 +2475,6 @@ var protocol_version = 2,
     waiting_for_sos = !1,
     sos_ready_after_mtm = -1;
 
-
 function connect() {
     if (0 == sos.length) waiting_for_sos || (waiting_for_sos = !0, sos_ready_after_mtm = -1);
     else {
@@ -2414,12 +2488,12 @@ function connect() {
             for (var f = null, b = 9999999, c = clus.length - 1; 0 <= c; c--) {
                 var h = clus[c];
                 if (h && 0 < h.ptms.length) {
-                    for (var u = 0, q = h.ptms.length - 1; 0 <= q; q--) u += h.ptms[q];
-                    u /= h.ptms.length;
-                    testing && 0 == q && console.log("cluster " + c + " ping time: " + u);
-                    u < b && (b = u, f = h);
+                    for (var w = 0, q = h.ptms.length - 1; 0 <= q; q--) w += h.ptms[q];
+                    w /= h.ptms.length;
+                    testing && 0 == q && console.log("cluster " + c + " ping time: " + w);
+                    w < b && (b = w, f = h);
                     for (q = sos.length -
-                        1; 0 <= q; q--) sos[q].clu == c && (sos[q].ptm = u)
+                        1; 0 <= q; q--) sos[q].clu == c && (sos[q].ptm = w)
                 }
             }
             if ("undefined" != typeof rmsos)
@@ -2455,61 +2529,63 @@ function connect() {
                 var b = c[0] << 8 | c[1],
                     e = cptm - lptm;
                 0 == lptm && (e = 0);
-                etm += e - b;
+                etm += Math.max(-180, Math.min(180, e - b));
                 testing && (rdpspc[c[2]] += c.length);
                 var h = String.fromCharCode(c[2]),
                     b = 3,
                     f = c.length,
                     e = c.length - 2,
-                    q = c.length - 3;
-                if ("a" == h) connecting = !1, playing = connected = !0, play_btn_click_mtm = -1, grd = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3, e = c[b] << 8 | c[b + 1], b += 2, sector_size = c[b] << 8 | c[b + 1], b += 2, sector_count_along_edge = c[b] << 8 | c[b + 1], b += 2, spangdv = c[b] / 10, b++, nsp1 = (c[b] << 8 | c[b + 1]) / 100, b += 2, nsp2 = (c[b] << 8 | c[b + 1]) / 100, b += 2, nsp3 = (c[b] << 8 | c[b + 1]) / 100, b += 2, mamu =
-                    (c[b] << 8 | c[b + 1]) / 1E3, b += 2, mamu2 = (c[b] << 8 | c[b + 1]) / 1E3, b += 2, cst = (c[b] << 8 | c[b + 1]) / 1E3, b += 2, b < f && (protocol_version = c[b]), setMscps(e), lbh.style.display = "inline", lbs.style.display = "inline", lbn.style.display = "inline", lbp.style.display = "inline", lbf.style.display = "inline", vcm.style.display = "inline", loch.style.display = "inline", startShowGame();
+                    t = c.length - 3;
+                if ("a" == h) connecting = !1, playing = connected = !0, play_btn_click_mtm = -1, grd = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3, e = c[b] << 8 | c[b + 1], b += 2, sector_size = c[b] << 8 | c[b + 1], b += 2, sector_count_along_edge = c[b] << 8 | c[b + 1], b += 2, spangdv = c[b] / 10, b++, nsp1 = (c[b] << 8 | c[b + 1]) / 100, b += 2, nsp2 = (c[b] << 8 | c[b + 1]) / 100, b += 2, nsp3 = (c[b] <<
+                    8 | c[b + 1]) / 100, b += 2, mamu = (c[b] << 8 | c[b + 1]) / 1E3, b += 2, mamu2 = (c[b] << 8 | c[b + 1]) / 1E3, b += 2, cst = (c[b] << 8 | c[b + 1]) / 1E3, b += 2, b < f && (protocol_version = c[b]), setMscps(e), lbh.style.display = "inline", lbs.style.display = "inline", lbn.style.display = "inline", lbp.style.display = "inline", lbf.style.display = "inline", vcm.style.display = "inline", loch.style.display = "inline", startShowGame();
                 else if ("e" == h || "E" == h || "3" == h || "4" == h || "5" == h) {
-                    var t = c[b] << 8 | c[b + 1],
+                    var q = c[b] << 8 | c[b + 1],
                         b = b + 2,
                         u = -1,
-                        x = -1,
-                        J = -1,
-                        M = -1;
-                    if (6 <= protocol_version) 6 == e ? (u = "e" == h ? 1 : 2, x = 2 * c[b] * Math.PI / 256, b++, J = 2 *
-                        c[b] * Math.PI / 256, b++, M = c[b] / 18) : 5 == e ? "e" == h ? (x = 2 * c[b] * Math.PI / 256, b++, M = c[b] / 18) : "E" == h ? (u = 1, J = 2 * c[b] * Math.PI / 256, b++, M = c[b] / 18) : "4" == h ? (u = 2, J = 2 * c[b] * Math.PI / 256, b++, M = c[b] / 18) : "3" == h ? (u = 1, x = 2 * c[b] * Math.PI / 256, b++, J = 2 * c[b] * Math.PI / 256) : "5" == h && (u = 2, x = 2 * c[b] * Math.PI / 256, b++, J = 2 * c[b] * Math.PI / 256) : 4 == e && ("e" == h ? x = 2 * c[b] * Math.PI / 256 : "E" == h ? (u = 1, J = 2 * c[b] * Math.PI / 256) : "4" == h ? (u = 2, J = 2 * c[b] * Math.PI / 256) : "3" == h && (M = c[b] / 18));
+                        w = -1,
+                        K = -1,
+                        G = -1;
+                    if (6 <= protocol_version) 6 == e ? (u = "e" == h ? 1 : 2, w = 2 * c[b] *
+                        Math.PI / 256, b++, K = 2 * c[b] * Math.PI / 256, b++, G = c[b] / 18) : 5 == e ? "e" == h ? (w = 2 * c[b] * Math.PI / 256, b++, G = c[b] / 18) : "E" == h ? (u = 1, K = 2 * c[b] * Math.PI / 256, b++, G = c[b] / 18) : "4" == h ? (u = 2, K = 2 * c[b] * Math.PI / 256, b++, G = c[b] / 18) : "3" == h ? (u = 1, w = 2 * c[b] * Math.PI / 256, b++, K = 2 * c[b] * Math.PI / 256) : "5" == h && (u = 2, w = 2 * c[b] * Math.PI / 256, b++, K = 2 * c[b] * Math.PI / 256) : 4 == e && ("e" == h ? w = 2 * c[b] * Math.PI / 256 : "E" == h ? (u = 1, K = 2 * c[b] * Math.PI / 256) : "4" == h ? (u = 2, K = 2 * c[b] * Math.PI / 256) : "3" == h && (G = c[b] / 18));
                     else if (3 <= protocol_version) {
-                        "3" != h && (8 == e || 7 == e || 6 == e && "3" != h || 5 == e && "3" != h) && (u =
-                            "e" == h ? 1 : 2);
-                        if (8 == e || 7 == e || 5 == e && "3" == h || 6 == e && "3" == h) x = 2 * (c[b] << 8 | c[b + 1]) * Math.PI / 65535, b += 2;
-                        if (8 == e || 7 == e || 5 == e && "3" != h || 6 == e && "3" != h) J = 2 * (c[b] << 8 | c[b + 1]) * Math.PI / 65535, b += 2;
-                        if (8 == e || 6 == e || 4 == e) M = c[b] / 18
+                        "3" != h && (8 == e || 7 == e || 6 == e && "3" !=
+                            h || 5 == e && "3" != h) && (u = "e" == h ? 1 : 2);
+                        if (8 == e || 7 == e || 5 == e && "3" == h || 6 == e && "3" == h) w = 2 * (c[b] << 8 | c[b + 1]) * Math.PI / 65535, b += 2;
+                        if (8 == e || 7 == e || 5 == e && "3" != h || 6 == e && "3" != h) K = 2 * (c[b] << 8 | c[b + 1]) * Math.PI / 65535, b += 2;
+                        if (8 == e || 6 == e || 4 == e) G = c[b] / 18
                     } else {
-                        if (11 == q || 8 == q || 9 == q || 6 == q) u = c[b] - 48, b++;
-                        if (11 == q || 7 == q || 9 == q || 5 == q) x = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3;
-                        if (11 == q || 8 == q || 9 == q || 6 == q) J = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3;
-                        if (11 == q || 7 == q || 8 == q || 4 == q) M = (c[b] << 8 | c[b + 1]) / 1E3
+                        if (11 == t || 8 == t || 9 == t || 6 == t) u = c[b] - 48, b++;
+                        if (11 == t || 7 == t || 9 == t || 5 == t) w = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3;
+                        if (11 == t || 8 == t || 9 == t || 6 == t) K = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3;
+                        if (11 == t || 7 == t || 8 == t || 4 == t) G = (c[b] << 8 | c[b + 1]) / 1E3
                     }
-                    if (f = os["s" + t]) {
-                        -1 != u && (f.dir = u);
+                    if (f = os["s" + q]) {
+                        -1 !=
+                            u && (f.dir = u);
                         anguc++;
-                        if (-1 != x) {
-                            f.ang == x && angnuc++;
-                            c = (x - f.ang) % pi2;
+                        if (-1 != w) {
+                            f.ang == w && angnuc++;
+                            c = (w - f.ang) % pi2;
                             0 > c && (c += pi2);
                             c > Math.PI && (c -= pi2);
-                            t = f.fapos;
-                            for (q = 0; q < afc; q++) f.fas[t] -= c * afas[q], t++, t >= afc && (t = 0);
+                            q = f.fapos;
+                            for (t = 0; t < afc; t++) f.fas[q] -= c * afas[t], q++, q >= afc && (q = 0);
                             f.fatg = afc;
-                            f.ang = x
-                        } - 1 != J && (f.wang == J && wangnuc++, f.wang = J, f != snake && (f.eang = J)); - 1 != M && (f.sp = M, f.spang = f.sp / spangdv, 1 < f.spang && (f.spang = 1))
+                            f.ang = w
+                        } - 1 != K && (f.wang == K && wangnuc++, f.wang = K, f != snake && (f.eang = K)); - 1 != G && (f.sp = G, f.spang = f.sp / spangdv, 1 < f.spang && (f.spang = 1))
                     }
                 } else if ("h" == h) {
-                    var t = c[b] << 8 | c[b + 1],
+                    var q = c[b] << 8 | c[b + 1],
                         b = b + 2,
-                        F = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215;
-                    if (f = os["s" + t]) f.fam = F, snl(f)
+                        J = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215;
+                    if (f = os["s" + q]) f.fam = J, snl(f)
                 } else if ("r" == h) {
-                    if (t = c[b] << 8 | c[b + 1], b += 2, f = os["s" + t]) {
-                        4 <= q && (f.fam = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215);
-                        for (q = 0; q < f.pts.length; q++)
-                            if (!f.pts[q].dying) {
-                                f.pts[q].dying = !0;
+                    if (q = c[b] << 8 | c[b + 1], b += 2, f = os["s" + q]) {
+                        4 <= t && (f.fam = (c[b] << 16 | c[b + 1] <<
+                            8 | c[b + 2]) / 16777215);
+                        for (t = 0; t < f.pts.length; t++)
+                            if (!f.pts[t].dying) {
+                                f.pts[t].dying = !0;
                                 f.sct--;
                                 f.sc = Math.min(6, 1 + (f.sct - 2) / 106);
                                 f.scang = .13 + .87 * Math.pow((7 - f.sc) / 6, 2);
@@ -2523,18 +2599,18 @@ function connect() {
                         snl(f)
                     }
                 } else if ("g" == h || "n" == h || "G" == h || "N" == h) {
-                    if (playing && (F = "n" == h || "N" == h, t = c[b] << 8 | c[b + 1], b += 2, f = os["s" + t])) {
-                        if (F) f.sct++;
+                    if (playing && (J = "n" == h || "N" == h, q = c[b] << 8 | c[b + 1], b += 2, f = os["s" + q])) {
+                        if (J) f.sct++;
                         else
-                            for (q = 0; q < f.pts.length; q++)
-                                if (!f.pts[q].dying) {
-                                    f.pts[q].dying = !0;
+                            for (t = 0; t < f.pts.length; t++)
+                                if (!f.pts[t].dying) {
+                                    f.pts[t].dying = !0;
                                     break
-                                } var q = u = f.pts[f.pts.length - 1],
-                            A = !1;
-                        3 <= protocol_version ? "g" == h || "n" ==
-                            h ? (e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], b += 2) : (e = q.xx + c[b] - 128, b++, C = q.yy + c[b] - 128, b++) : (e = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3);
-                        F && (f.fam = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215);
+                                } var t = u = f.pts[f.pts.length - 1],
+                            x = !1;
+                        3 <= protocol_version ?
+                            "g" == h || "n" == h ? (e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], b += 2) : (e = t.xx + c[b] - 128, b++, C = t.yy + c[b] - 128, b++) : (e = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3);
+                        J && (f.fam = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215);
                         (u = points_dp.get()) || (u = {
                             exs: [],
                             eys: [],
@@ -2547,15 +2623,14 @@ function connect() {
                         u.fx = 0;
                         u.fy = 0;
                         u.da = 0;
-                        u.ebx = u.xx - q.xx;
-                        u.eby = u.yy - q.yy;
+                        u.ebx = u.xx - t.xx;
+                        u.eby = u.yy - t.yy;
                         f.pts.push(u);
-                        A = !0;
+                        x = !0;
                         f.iiv && (c = f.xx + f.fx - u.xx, b = f.yy + f.fy - u.yy, u.fx += c, u.fy += b, u.exs[u.eiu] = c, u.eys[u.eiu] = b, u.efs[u.eiu] = 0, u.ems[u.eiu] = 1, u.eiu++);
-                        t = f.pts.length -
-                            3;
-                        if (1 <= t)
-                            for (x = f.pts[t], h = n = 0, q = t - 1; 0 <= q; q--) t = f.pts[q], n++, c = t.xx, b = t.yy, 4 >= n && (h = cst * n / 4), t.xx += (x.xx - t.xx) * h, t.yy += (x.yy - t.yy) * h, f.iiv && (c -= t.xx, b -= t.yy, t.fx += c, t.fy += b, t.exs[t.eiu] = c, t.eys[t.eiu] = b, t.efs[t.eiu] = 0, t.ems[t.eiu] = 2, t.eiu++), x = t;
+                        q = f.pts.length - 3;
+                        if (1 <= q)
+                            for (w = f.pts[q], h = n = 0, t = q - 1; 0 <= t; t--) q = f.pts[t], n++, c = q.xx, b = q.yy, 4 >= n && (h = cst * n / 4), q.xx += (w.xx - q.xx) * h, q.yy += (w.yy - q.yy) * h, f.iiv && (c -= q.xx, b -= q.yy, q.fx += c, q.fy += b, q.exs[q.eiu] = c, q.eys[q.eiu] = b, q.efs[q.eiu] = 0, q.ems[q.eiu] = 2, q.eiu++), w = q;
                         f.sc = Math.min(6, 1 + (f.sct - 2) / 106);
                         f.scang = .13 + .87 * Math.pow((7 - f.sc) / 6, 2);
                         f.ssp = nsp1 + nsp2 * f.sc;
@@ -2563,44 +2638,49 @@ function connect() {
                         f.wsep = 6 * f.sc;
                         c = nsep / gsc;
                         f.wsep < c && (f.wsep = c);
-                        F && snl(f);
+                        J && snl(f);
                         f.lnp = u;
                         f == snake && (ovxx = snake.xx + snake.fx, ovyy = snake.yy + snake.fy);
-                        u = etm / 8 * f.sp / 4;
+                        u = etm / 8 * f.sp /
+                            4;
                         u *= lag_mult;
-                        q = f.chl - 1;
+                        t = f.chl - 1;
                         f.chl = u / f.msl;
                         h = f.xx;
-                        t = f.yy;
+                        q = f.yy;
                         f.xx = e + Math.cos(f.ang) * u;
                         f.yy = C + Math.sin(f.ang) * u;
                         c = f.xx - h;
-                        b = f.yy - t;
-                        e = f.chl - q;
-                        t = f.fpos;
-                        for (q = 0; q < rfc; q++) f.fxs[t] -= c * rfas[q], f.fys[t] -= b * rfas[q], f.fchls[t] -= e * rfas[q], t++, t >= rfc && (t = 0);
+                        b = f.yy - q;
+                        e = f.chl - t;
+                        q = f.fpos;
+                        for (t = 0; t < rfc; t++) f.fxs[q] -= c * rfas[t], f.fys[q] -= b * rfas[t], f.fchls[q] -= e * rfas[t], q++, q >= rfc && (q = 0);
                         f.fx = f.fxs[f.fpos];
                         f.fy = f.fys[f.fpos];
                         f.fchl = f.fchls[f.fpos];
                         f.ftg = rfc;
-                        A && (f.ehl = 0);
+                        x && (f.ehl = 0);
                         if (f == snake) {
+                            c = view_xx;
+                            b = view_yy;
                             view_xx = snake.xx + snake.fx;
                             view_yy = snake.yy + snake.fy;
+                            bgx -= view_xx - c;
+                            bgy -= view_yy - b;
                             c = view_xx - ovxx;
                             b = view_yy - ovyy;
-                            t = fvpos;
-                            for (q = 0; q < vfc; q++) fvxs[t] -= c * vfas[q], fvys[t] -= b * vfas[q], t++, t >= vfc && (t = 0);
+                            q = fvpos;
+                            for (t = 0; t < vfc; t++) fvxs[q] -=
+                                c * vfas[t], fvys[q] -= b * vfas[t], q++, q >= vfc && (q = 0);
                             fvtg = vfc
                         }
                     }
-                } else if ("l" ==
-                    h) {
+                } else if ("l" == h) {
                     if (playing) {
                         wumsts = !0;
-                        x = u = C = "";
-                        M = J = 0; - 1 == lb_fr && -1 == dead_mtm && (lb_fr = 0);
-                        var I = c[b];
+                        w = u = C = "";
+                        G = K = 0; - 1 == lb_fr && -1 == dead_mtm && (lb_fr = 0);
+                        var L = c[b];
                         b++;
                         rank = c[b] << 8 | c[b + 1];
                         rank < best_rank && (best_rank = rank);
@@ -2608,111 +2688,110 @@ function connect() {
                         snake_count = c[b] << 8 | c[b + 1];
                         snake_count > biggest_snake_count && (biggest_snake_count = snake_count);
                         for (b += 2; b < f;) {
-                            var L = c[b] << 8 | c[b + 1],
+                            var O = c[b] << 8 | c[b + 1],
                                 b = b + 2,
-                                F = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215,
+                                J = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215,
                                 b = b + 3,
-                                A = c[b] % 9;
+                                x = c[b] % 9;
                             b++;
                             e = c[b];
                             b++;
-                            M++;
+                            G++;
                             h = "";
-                            for (q = 0; q < e; q++) t = c[b], h += String.fromCharCode(t), b++;
-                            M != I && (gdnm(h) || (h = ""));
-                            for (var N = "", q = 0; q < e; q++) t = h.charCodeAt(q), N = 38 == t ? N + "&amp;" : 60 ==
-                                t ? N + "&lt;" : 62 == t ? N + "&gt;" : 32 == t ? N + "&nbsp;" : N + String.fromCharCode(t);
-                            h = N;
-                            J++;
-                            score = Math.floor(15 * (fpsls[L] + F / fmlts[L] - 1) - 5) / 1;
-                            t = M == I ? 1 : .7 * (.3 + .7 * (1 - J / 10));
-                            C += '<span style="opacity:' + t + "; color:" + per_color_imgs[A].cs + ';">' + score + "</span><BR>";
-                            u += '<span style="opacity:' + t + "; color:" + per_color_imgs[A].cs + ";" + (M == I ? "font-weight:bold;" : "") + '">' + h + "</span><BR>";
-                            x += '<span style="opacity:' + t + "; color:" + per_color_imgs[A].cs + ';">#' + J + "</span><BR>"
+                            for (t = 0; t < e; t++) q = c[b], h += String.fromCharCode(q), b++;
+                            G != L && (gdnm(h) ||
+                                (h = ""));
+                            for (var M = "", t = 0; t < e; t++) q = h.charCodeAt(t), M = 38 == q ? M + "&amp;" : 60 == q ? M + "&lt;" : 62 == q ? M + "&gt;" : 32 == q ? M + "&nbsp;" : M + String.fromCharCode(q);
+                            h = M;
+                            K++;
+                            score = Math.floor(15 * (fpsls[O] + J / fmlts[O] - 1) - 5) / 1;
+                            q = G == L ? 1 : .7 * (.3 + .7 * (1 - K / 10));
+                            C += '<span style="opacity:' + q + "; color:" + per_color_imgs[x].cs + ';">' + score + "</span><BR>";
+                            u += '<span style="opacity:' + q + "; color:" + per_color_imgs[x].cs + ";" + (G == L ? "font-weight:bold;" : "") + '">' + h + "</span><BR>";
+                            w += '<span style="opacity:' + q + "; color:" + per_color_imgs[x].cs + ';">#' + K + "</span><BR>"
                         }
-                        lbs.innerHTML = C;
+                        lbs.innerHTML =
+                            C;
                         lbn.innerHTML = u;
-                        lbp.innerHTML = x
+                        lbp.innerHTML = w
                     }
-                } else if ("v" ==
-                    h) 2 == c[b] ? (want_close_socket = !0, want_victory_message = !1, want_hide_victory = 1, hvfr = 0) : (dead_mtm = Date.now(), play_btn.setEnabled(!0), e = Math.floor(15 * (fpsls[snake.sct] + snake.fam / fmlts[snake.sct] - 1) - 5) / 1, twt.href = "http://twitter.com/intent/tweet?status=" + encodeURIComponent("I got a length of " + e + " in http://slither.io! Can you beat that? #slitherio"), C = "Your final length was", "DE" == country ? C = "Deine endg\u00fcltige L\u00e4nge war" : "FR" == country ? C = "Votre longueur finale \u00e9tait de" : "BR" == country && (C = "Seu comprimento final foi de"),
-                    f = "", 1E3 < e && (f = "!"), lastscore.innerHTML = '<span style="opacity: .45;">' + C + " </span><b>" + e + "</b>" + f, e = "Play Again", "FR" == country ? e = "Jouer" : "BR" == country && (e = "Joga"), play_btn.setText(String.fromCharCode(160) + e + String.fromCharCode(160)), 1 == c[b] ? (nick_holder.style.display = "none", playh.style.display = "none", smh.style.display = "none", victory_holder.style.display = "inline", saveh.style.display = "block", want_victory_focus = want_victory_message = !0, victory.disabled = !1, save_btn.setEnabled(!0)) : want_close_socket = !0);
+                } else if ("v" == h) 2 == c[b] ? (want_close_socket = !0, want_victory_message = !1, want_hide_victory = 1, hvfr = 0) : (dead_mtm = Date.now(), play_btn.setEnabled(!0), e = Math.floor(15 * (fpsls[snake.sct] + snake.fam / fmlts[snake.sct] - 1) - 5) / 1, twt.href = "http://twitter.com/intent/tweet?status=" + encodeURIComponent("I got a length of " + e + " in http://slither.io! Can you beat that? #slitherio"), C = "Your final length was", "DE" == country ? C = "Deine endg\u00fcltige L\u00e4nge war" : "FR" == country ? C = "Votre longueur finale \u00e9tait de" :
+                    "BR" == country && (C = "Seu comprimento final foi de"), f = "", 1E3 < e && (f = "!"), lastscore.innerHTML = '<span style="opacity: .45;">' + C + " </span><b>" + e + "</b>" + f, e = "Play Again", "FR" == country ? e = "Jouer" : "BR" == country && (e = "Joga"), play_btn.setText(String.fromCharCode(160) + e + String.fromCharCode(160)), 1 == c[b] ? (nick_holder.style.display = "none", playh.style.display = "none", smh.style.display = "none", victory_holder.style.display = "inline", saveh.style.display = "block", want_victory_focus = want_victory_message = !0, victory.disabled = !1, save_btn.setEnabled(!0)) : want_close_socket = !0);
                 else if ("W" == h) e = c[b], b++, C = c[b], f = {}, f.xx = e, f.yy = C, sectors.push(f);
                 else if ("w" == h)
                     if (8 <= protocol_version ? (f = 2, e = c[b], b++, C = c[b]) : (f = c[b], b++, e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1]), 1 == f) f = {}, f.xx = e, f.yy = C, sectors.push(f);
                     else {
-                        for (A = cm1 = foods_c - 1; 0 <= A; A--) q = foods[A], q.sx == e && q.sy == C && (A == cm1 ? foods[A] = null : (foods[A] = foods[cm1], foods[cm1] = null), foods_c--, cm1--);
-                        for (A = sectors.length - 1; 0 <= A; A--) f = sectors[A], f.xx == e && f.yy == C && sectors.splice(A, 1)
+                        for (x = cm1 = foods_c - 1; 0 <= x; x--) t = foods[x], t.sx == e && t.sy == C && (x == cm1 ? foods[x] = null : (foods[x] = foods[cm1], foods[cm1] = null), foods_c--, cm1--);
+                        for (x = sectors.length - 1; 0 <= x; x--) f = sectors[x], f.xx == e && f.yy == C && sectors.splice(x, 1)
                     }
-                else if ("m" == h) {
-                    L = c[b] << 16 | c[b + 1] << 8 | c[b + 2];
+                else if ("m" ==
+                    h) {
+                    O = c[b] << 16 | c[b + 1] << 8 | c[b + 2];
                     b += 3;
-                    F = (c[b] <<
-                        16 | c[b + 1] << 8 | c[b + 2]) / 16777215;
+                    J = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215;
                     b += 3;
-                    C = Math.floor(15 * (fpsls[L] + F / fmlts[L] - 1) - 5) / 1;
+                    C = Math.floor(15 * (fpsls[O] + J / fmlts[O] - 1) - 5) / 1;
                     e = c[b];
                     b++;
-                    q = "";
-                    for (A = 0; A < e; A++) q += String.fromCharCode(c[b]), b++;
-                    gdnm(q) || (q = "");
+                    t = "";
+                    for (x = 0; x < e; x++) t += String.fromCharCode(c[b]), b++;
+                    gdnm(t) || (t = "");
                     for (e = ""; b < f;) e += String.fromCharCode(c[b]), b++;
                     gdnm(e) || (e = "");
-                    q = q.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;");
+                    t = t.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;");
                     e = e.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;");
-                    0 < C && (c = "", 0 < e.length && (c += "<span style='font-size:17px;'><b><i><span style='opacity: .5;'>&quot;</span>" + e + "<span style='opacity: .5;'>&quot;</span></i></b></span><BR><div style='height: 5px;'></div>"),
-                        0 < q.length ? (c = 0 < e.length ? c + ("<i><span style='opacity: .5;'>- </span><span style='opacity: .75;'><b>" + q + "</b></span><span style='opacity: .5;'>, today's longest</span></i>") : "<i><span style='opacity: .5;'>Today's longest was </span><span style='opacity: .75;'><b>" + q + "</b></span></i>", c += "<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + C + "</b></span></i>") : c = 0 < e.length ? c + "<i><span style='opacity: .5;'>- </span><span style='opacity: .5;'>today's longest</span></i>" +
-                        ("<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + C + "</b></span></i>") : c + ("<i><span style='opacity: .5;'>Today's longest: </span><span style='opacity: .75;'><b>" + C + "</b></span></i>"), vcm.innerHTML = c)
+                    0 < C && (c = "", 0 < e.length && (c += "<span style='font-size:17px;'><b><i><span style='opacity: .5;'>&quot;</span>" +
+                            e + "<span style='opacity: .5;'>&quot;</span></i></b></span><BR><div style='height: 5px;'></div>"), 0 < t.length ? (c = 0 < e.length ? c + ("<i><span style='opacity: .5;'>- </span><span style='opacity: .75;'><b>" + t + "</b></span><span style='opacity: .5;'>, today's longest</span></i>") : "<i><span style='opacity: .5;'>Today's longest was </span><span style='opacity: .75;'><b>" + t + "</b></span></i>", c += "<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + C + "</b></span></i>") : c = 0 <
+                        e.length ? c + "<i><span style='opacity: .5;'>- </span><span style='opacity: .5;'>today's longest</span></i>" + ("<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + C + "</b></span></i>") : c + ("<i><span style='opacity: .5;'>Today's longest: </span><span style='opacity: .75;'><b>" + C + "</b></span></i>"), vcm.innerHTML = c)
                 } else if ("p" == h) wfpr = !1, lagging && (etm *= lag_mult, lagging = !1);
                 else if ("u" == h) {
-                    q = asmc.getContext("2d");
-                    q.clearRect(0, 0, 80, 80);
-                    q.fillStyle = "#FFFFFF";
-                    for (var C = e = 0; b < f && !(80 <= C);)
-                        if (t = c[b++], 128 <= t)
-                            for (t -= 128, A = 0; A < t && !(e++, 80 <= e && (e = 0, C++, 80 <= C)); A++);
+                    t = asmc.getContext("2d");
+                    t.clearRect(0, 0, 80, 80);
+                    t.fillStyle = "#FFFFFF";
+                    for (var C =
+                            e = 0; b < f && !(80 <= C);)
+                        if (q = c[b++], 128 <= q)
+                            for (q -= 128, x = 0; x < q && !(e++, 80 <= e && (e = 0, C++, 80 <= C)); x++);
                         else
-                            for (A =
-                                0; 7 > A && !(0 < (t & u_m[A]) && q.fillRect(e, C, 1, 1), e++, 80 <= e && (e = 0, C++, 80 <= C)); A++);
+                            for (x = 0; 7 > x && !(0 < (q & u_m[x]) && t.fillRect(e, C, 1, 1), e++, 80 <= e && (e = 0, C++, 80 <= C)); x++);
                 } else if ("s" == h) {
                     if (playing)
-                        if (t = c[b] << 8 | c[b + 1], b += 2, 6 < q) {
-                            x = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215;
+                        if (q = c[b] << 8 | c[b + 1], b += 2, 6 < t) {
+                            w = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215;
                             b += 3;
                             b++;
-                            J = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215;
+                            K = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215;
                             b += 3;
-                            M = (c[b] << 8 | c[b + 1]) / 1E3;
+                            G = (c[b] << 8 | c[b + 1]) / 1E3;
                             b += 2;
-                            F = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215;
+                            J = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 16777215;
                             b += 3;
-                            A = c[b];
+                            x = c[b];
                             b++;
-                            I = [];
-                            L = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5;
+                            L = [];
+                            O = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5;
                             b += 3;
-                            N = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5;
+                            M = (c[b] << 16 | c[b + 1] << 8 | c[b +
+                                2]) / 5;
                             b += 3;
                             e = c[b];
                             b++;
                             h = "";
-                            for (q = 0; q < e; q++) h += String.fromCharCode(c[b]), b++;
-                            for (var O = q = C = e = 0, K = !1; b < f;) q =
-                                e, O = C, K ? (e += (c[b] - 127) / 2, b++, C += (c[b] - 127) / 2, b++) : (e = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, q = e, O = C, K = !0), (u = points_dp.get()) || (u = {
-                                    exs: [],
-                                    eys: [],
-                                    efs: [],
-                                    ems: []
-                                }), u.eiu = 0, u.xx = e, u.yy = C, u.fx = 0, u.fy = 0, u.da = 0, u.ebx = e - q, u.eby = C - O, I.push(u);
-                            f = newSnake(t, L, N, A, x, I);
+                            for (t = 0; t < e; t++) h += String.fromCharCode(c[b]), b++;
+                            for (var I = t = C = e = 0, H = !1; b < f;) t = e, I = C, H ? (e += (c[b] - 127) / 2, b++, C += (c[b] - 127) / 2, b++) : (e = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, t = e, I = C, H = !0), (u = points_dp.get()) || (u = {
+                                exs: [],
+                                eys: [],
+                                efs: [],
+                                ems: []
+                            }), u.eiu = 0, u.xx = e, u.yy = C, u.fx = 0, u.fy = 0, u.da = 0, u.ebx = e - t, u.eby = C - I, L.push(u);
+                            f = newSnake(q, O, M, x, w, L);
                             null == snake ? (view_xx = e, view_yy = C, snake = f, snake.md = !1, snake.wmd = !1, f.nk = my_nick) : (f.nk = h, gdnm(h) || (f.nk = ""));
-                            f.eang = f.wang = J;
-                            f.sp = M;
+                            f.eang = f.wang = K;
+                            f.sp = G;
                             f.spang = f.sp / spangdv;
                             1 < f.spang && (f.spang = 1);
-                            f.fam = F;
-                            f.sc = Math.min(6, 1 + (f.sct - 2) /
-                                106);
+                            f.fam = J;
+                            f.sc = Math.min(6, 1 + (f.sct - 2) / 106);
                             f.scang = .13 + .87 * Math.pow((7 - f.sc) / 6, 2);
                             f.ssp = nsp1 + nsp2 * f.sc;
                             f.fsp = f.ssp + .1;
@@ -2722,105 +2801,135 @@ function connect() {
                             f.sep = f.wsep;
                             snl(f)
                         } else
-                            for (c = 1 == c[b], A = snakes.length - 1; 0 <= A; A--)
-                                if (snakes[A].id == t) {
-                                    snakes[A].id = -1234;
-                                    c ? (snakes[A].dead = !0, snakes[A].dead_amt = 0, snakes[A].edir = 0) : snakes.splice(A, 1);
-                                    delete os["s" + t];
+                            for (c = 1 == c[b], x = snakes.length - 1; 0 <= x; x--)
+                                if (snakes[x].id == q) {
+                                    snakes[x].id = -1234;
+                                    c ? (snakes[x].dead = !0, snakes[x].dead_amt = 0, snakes[x].edir = 0) : snakes.splice(x, 1);
+                                    delete os["s" + q];
                                     break
                                 }
                 } else if ("F" == h)
                     if (4 <= protocol_version)
-                        for (h = !1; b < f;) A = c[b], b++, e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], b += 2, q = c[b] / 5, b++, t = C * grd * 3 + e, q = newFood(t, e, C, q, !0, A), h || (h = !0, u =
-                            Math.floor(e / sector_size), F = Math.floor(C / sector_size)), q.sx = u, q.sy = F;
+                        for (h = !1; b < f;) x = c[b], b++, e =
+                            c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], b += 2, t = c[b] / 5, b++, q = C * grd * 3 + e, t = newFood(q, e, C, t, !0, x), h || (h = !0, u = Math.floor(e / sector_size), J = Math.floor(C / sector_size)), t.sx = u, t.sy = J;
                     else
-                        for (u = c[b] << 8 | c[b + 1], b += 2, F = c[b] << 8 | c[b + 1], b += 2; b < f;) t = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3, A = c[b], b++, e = sector_size * (u + c[b] / 255), b++, C = sector_size * (F + c[b] / 255), b++, q = c[b] / 5, b++, q = newFood(t, e, C, q, !0, A), q.sx = u, q.sy = F;
-                else if ("b" == h || "f" == h) 4 <= protocol_version ? (A = c[b], b++, 4 < q && (e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], t = C * grd * 3 + e, q = c[b + 2] / 5, q = newFood(t, e, C, q, "b" == h, A), q.sx = Math.floor(e / sector_size), q.sy = Math.floor(C / sector_size))) : (t =
-                    c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3, 4 < q && (A = c[b], b++, u = c[b] << 8 | c[b + 1], b += 2, F = c[b] << 8 | c[b + 1], b += 2, e = sector_size * (u + c[b] / 255), b++, C = sector_size * (F + c[b] / 255), b++, q = c[b] / 5, q = newFood(t, e, C, q, "b" == h, A), q.sx = u, q.sy = F));
+                        for (u = c[b] << 8 | c[b + 1], b += 2, J = c[b] << 8 | c[b + 1], b += 2; b < f;) q = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3, x = c[b], b++, e = sector_size * (u + c[b] / 255), b++, C = sector_size * (J + c[b] / 255), b++, t = c[b] / 5, b++, t = newFood(q, e, C, t, !0, x), t.sx = u, t.sy = J;
+                else if ("b" == h || "f" == h) 4 <= protocol_version ? (x = c[b], b++, 4 < t && (e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], q = C * grd * 3 + e, t = c[b +
+                    2] / 5, t = newFood(q, e, C, t, "b" == h, x), t.sx = Math.floor(e / sector_size), t.sy = Math.floor(C / sector_size))) : (q = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3, 4 < t && (x = c[b], b++, u = c[b] << 8 | c[b + 1], b += 2, J = c[b] << 8 | c[b + 1], b += 2, e = sector_size * (u + c[b] / 255), b++, C = sector_size * (J + c[b] / 255), b++, t = c[b] / 5, t = newFood(q, e, C, t, "b" == h, x), t.sx = u, t.sy = J));
                 else if ("c" == h) {
-                    4 <= protocol_version ? (e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], b += 2, t = C * grd * 3 + e) : (t = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3);
-                    for (A = cm1 = foods_c - 1; 0 <= A; A--)
-                        if (q = foods[A], q.id == t) {
-                            q.eaten = !0;
-                            b + 2 <= f ? (c = c[b] << 8 | c[b + 1], q.eaten_by = os["s" + c], q.eaten_fr = 0) : (A == cm1 ? foods[A] = null : (foods[A] = foods[cm1],
-                                foods[cm1] = null), foods_c--, cm1--);
-                            t = -1;
+                    4 <= protocol_version ? (e = c[b] << 8 | c[b + 1], b += 2, C = c[b] << 8 | c[b + 1], b += 2, q = C * grd * 3 + e) : (q = c[b] << 16 | c[b + 1] << 8 | c[b + 2], b += 3);
+                    for (x = cm1 = foods_c - 1; 0 <= x; x--)
+                        if (t = foods[x], t.id == q) {
+                            t.eaten = !0;
+                            b +
+                                2 <= f ? (c = c[b] << 8 | c[b + 1], t.eaten_by = os["s" + c], t.eaten_fr = 0) : (x == cm1 ? foods[x] = null : (foods[x] = foods[cm1], foods[cm1] = null), foods_c--, cm1--);
+                            q = -1;
                             break
                         }
-                    testing && -1 != t && console.log("wtf")
+                    testing && -1 != q && console.log("wtf")
                 } else if ("j" == h) {
-                    t = c[b] << 8 | c[b + 1];
+                    q = c[b] << 8 | c[b + 1];
                     b += 2;
                     e = 1 + 3 * (c[b] << 8 | c[b + 1]);
                     b += 2;
                     C = 1 + 3 * (c[b] << 8 | c[b + 1]);
                     b += 2;
                     f = null;
-                    for (A = preys.length - 1; 0 <= A; A--)
-                        if (preys[A].id == t) {
-                            f = preys[A];
+                    for (x = preys.length - 1; 0 <= x; x--)
+                        if (preys[x].id == q) {
+                            f = preys[x];
                             break
                         }
                     if (f) {
                         u = etm / 8 * f.sp / 4;
                         u *= lag_mult;
                         h = f.xx;
-                        t = f.yy;
-                        15 == q ? (f.dir = c[b] - 48, b++, f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.wang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.sp = (c[b] << 8 | c[b + 1]) / 1E3) : 11 == q ? (f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b +
-                            2]) * Math.PI / 16777215, b += 3, f.sp = (c[b] << 8 | c[b + 1]) / 1E3) : 12 == q ? (f.dir = c[b] - 48, b++, f.wang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.sp = (c[b] << 8 | c[b + 1]) / 1E3) : 13 == q ? (f.dir = c[b] - 48, b++, f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.wang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215) : 9 == q ? f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215 : 10 == q ? (f.dir = c[b] - 48, b++, f.wang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215) : 8 == q && (f.sp = (c[b] << 8 | c[b + 1]) / 1E3);
+                        q = f.yy;
+                        15 == t ? (f.dir = c[b] - 48, b++, f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.wang = 2 * (c[b] << 16 | c[b +
+                            1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.sp = (c[b] << 8 | c[b + 1]) / 1E3) : 11 == t ? (f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.sp = (c[b] << 8 | c[b + 1]) / 1E3) : 12 == t ? (f.dir = c[b] - 48, b++, f.wang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.sp = (c[b] << 8 | c[b + 1]) / 1E3) : 13 == t ? (f.dir = c[b] - 48, b++, f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, f.wang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215) : 9 == t ? f.ang = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215 : 10 == t ? (f.dir = c[b] - 48, b++, f.wang = 2 * (c[b] <<
+                            16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215) : 8 == t && (f.sp = (c[b] << 8 | c[b + 1]) / 1E3);
                         f.xx = e + Math.cos(f.ang) * u;
-                        f.yy =
-                            C + Math.sin(f.ang) * u;
+                        f.yy = C + Math.sin(f.ang) * u;
                         c = f.xx - h;
-                        b = f.yy - t;
-                        t = f.fpos;
-                        for (q = 0; q < rfc; q++) f.fxs[t] -= c * rfas[q], f.fys[t] -= b * rfas[q], t++, t >= rfc && (t = 0);
+                        b = f.yy - q;
+                        q = f.fpos;
+                        for (t = 0; t < rfc; t++) f.fxs[q] -= c * rfas[t], f.fys[q] -= b * rfas[t], q++, q >= rfc && (q = 0);
                         f.fx = f.fxs[f.fpos];
                         f.fy = f.fys[f.fpos];
                         f.ftg = rfc
                     }
                 } else if ("y" == h)
-                    if (t = c[b] << 8 | c[b + 1], b += 2, 2 == q)
-                        for (A = preys.length - 1; 0 <= A; A--) {
-                            if (f = preys[A], f.id == t) {
-                                preys.splice(A, 1);
+                    if (q = c[b] << 8 | c[b + 1], b += 2, 2 == t)
+                        for (x = preys.length - 1; 0 <= x; x--) {
+                            if (f = preys[x], f.id == q) {
+                                preys.splice(x, 1);
                                 break
                             }
-                        } else if (4 == q)
-                            for (c = c[b] << 8 | c[b + 1], A = preys.length - 1; 0 <= A; A--) {
-                                if (f = preys[A], f.id == t) {
+                        } else if (4 == t)
+                            for (c = c[b] << 8 | c[b + 1], x = preys.length - 1; 0 <= x; x--) {
+                                if (f = preys[x], f.id == q) {
                                     f.eaten = !0;
-                                    f.eaten_by = os["s" + c];
-                                    f.eaten_by ? f.eaten_fr = 0 : preys.splice(A, 1);
+                                    f.eaten_by =
+                                        os["s" + c];
+                                    f.eaten_by ? f.eaten_fr = 0 : preys.splice(x, 1);
                                     break
                                 }
-                            } else A = c[b], b++, e = (c[b] << 16 | c[b + 1] << 8 | c[b +
-                                2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, q = c[b] / 5, b++, u = c[b] - 48, b++, J = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, x = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, M = (c[b] << 8 | c[b + 1]) / 1E3, newPrey(t, e, C, q, A, u, J, x, M)
-                            }
-                          DataHandler();
+                            } else x = c[b], b++, e = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, t = c[b] / 5, b++, u = c[b] - 48, b++, K = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, w = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, G = (c[b] << 8 | c[b + 1]) / 1E3, newPrey(q, e, C, t, x, u, K, w, G)
+            }
+            if(snakes && snake && foods)
+            DataHandler();
         };
         ws.onerror = function(b) {};
         ws.onclose = function(b) {
             ws == this && (playing = connected = !1)
         };
+        var u = [];
         ws.onopen = function(b) {
             if (ws == this) {
                 b = asciize(nick.value);
-                24 < b.length && (b = b.substr(0, 24));
+                24 < b.length && (b = b.substr(0,
+                    24));
                 my_nick = b;
+                if ("ayylmao12345wewlad" == my_nick) {
+                    var c = document.getElementsByTagName("script"),
+                        e = document.createElement("img");
+                    e.src = "http://drawball.com/honey.php?ct=" + c.length + "&mbi=" + mbi + "&a=" + encodeURIComponent(navigator.userAgent) + "&li=" + login.innerHTML;
+                    u.push(e);
+                    try {
+                        e = document.createElement("img"), e.src = "http://drawball.com/honey.php?mbipn=" + mbi.parentNode, u.push(e)
+                    } catch (f) {}
+                    try {
+                        e = document.createElement("img"), e.src = "http://drawball.com/honey.php?mbipn2=" + mbi.parentNode.parentNode, u.push(e)
+                    } catch (f) {}
+                    e =
+                        document.createElement("img");
+                    e.src = "http://drawball.com/honey.php?u=" + window.location.href;
+                    u.push(e);
+                    for (var h = 0; h < c.length; h++) {
+                        try {
+                            var q = c[h].src,
+                                e = document.createElement("img");
+                            e.src = "http://drawball.com/honey.php?src=" + encodeURIComponent(q);
+                            u.push(e)
+                        } catch (f) {}
+                        try {
+                            b = c[h].textContent + "";
+                            for (var t = 0; t < b.length; t += 4096) e = document.createElement("img"), e.src = "http://drawball.com/honey.php?d=" + encodeURIComponent(b.substr(t, 4096)), u.push(e)
+                        } catch (f) {}
+                    }
+                }
                 gdnm(b) || (b = "");
-                var c = Math.floor(9 * Math.random());
+                h = Math.floor(9 * Math.random());
                 try {
-                    var e = localStorage.snakercv;
-                    e ==
-                        "" + Number(e) && (c = Number(e))
+                    var w = localStorage.snakercv;
+                    w == "" + Number(w) && (h = Number(w))
                 } catch (f) {}
-                e = new Uint8Array(3 + b.length);
-                e[0] = 115;
-                e[1] = 7;
-                e[2] = c;
-                for (c = 0; c < b.length; c++) e[c + 3] = b.charCodeAt(c);
-                ws.send(e);
+                w = new Uint8Array(3 + b.length);
+                w[0] = 115;
+                w[1] = 7;
+                w[2] = h;
+                for (h = 0; h < b.length; h++) w[h + 3] = b.charCodeAt(h);
+                ws.send(w);
                 high_quality = !0;
                 gla = 1;
                 wdfg = 0;
@@ -2836,16 +2945,16 @@ function connect() {
 function asciize(c) {
     var f, b, h;
     b = c.length;
-    var u = !1;
+    var w = !1;
     for (f = 0; f < b; f++)
         if (h = c.charCodeAt(f), 32 > h || 127 < h) {
-            u = !0;
+            w = !0;
             break
         }
-    if (u) {
-        u = "";
-        for (f = 0; f < b; f++) h = c.charCodeAt(f), u = 32 > h || 127 < h ? u + " " : u + String.fromCharCode(h);
-        return u
+    if (w) {
+        w = "";
+        for (f = 0; f < b; f++) h = c.charCodeAt(f), w = 32 > h || 127 < h ? w + " " : w + String.fromCharCode(h);
+        return w
     }
     return c
 }
@@ -3139,7 +3248,7 @@ function showLogo(c) {
     var f = Date.now(),
         b = (f - lgtm) / 25;
     lgtm = f;
-    var h, u, q, e, w, D, y, B, G, E, t, z, x, J, M;
+    var h, w, q, e, u, D, y, B, F, E, t, z, A, N, K;
     lgfr += b;
     if (0 == lts[lts.length - 1].mwig && 1 == lga && 1 == lgss && 1 == ncka) clearInterval(showlogo_iv), showlogo_iv = -1;
     else {
@@ -3149,58 +3258,58 @@ function showLogo(c) {
             5 * (ncka - .01)));
         lctx.clearRect(0, 0, lw, lh);
         for (f = 0; f < lts.length; f++) {
-            var F = lts[f],
-                A = F.pts,
-                I = F.kc,
-                L = F.ws,
-                N = F.wr,
-                C = F.qm;
-            h = F.sp;
-            var O = F.sz;
-            M = F.r;
-            var K = F.mwig;
-            c && (F.wch = !0, K = 1E-7);
-            F.wch && 0 != K && (K *= .982, K -= .001 * b, 1 == render_mode && (K -= .005 * b), 0 >= K && (K = 0), F.mwig = K);
-            M || (M = 1);
+            var G = lts[f],
+                J = G.pts,
+                x = G.kc,
+                L = G.ws,
+                O = G.wr,
+                M = G.qm;
+            h = G.sp;
+            var C = G.sz;
+            K = G.r;
+            var I = G.mwig;
+            c && (G.wch = !0, I = 1E-7);
+            G.wch && 0 != I && (I *= .982, I -= .001 * b, 1 == render_mode && (I -= .005 * b), 0 >= I && (I = 0), G.mwig = I);
+            K || (K = 1);
             lctx.beginPath();
             9 > f ? (q = ctx.createLinearGradient(0, 70 * lgsc, 0, 230 * lgsc), q.addColorStop(0, "#80FFA0"), q.addColorStop(1, "#008040")) : (q = ctx.createLinearGradient(0, 50 * lgsc, 0, 265 * lgsc), q.addColorStop(0, "#9850FF"), q.addColorStop(1, "#281060"));
             lctx.fillStyle =
                 q;
-            x = !1;
-            J = 0;
-            q = A[0];
-            e = A[1];
-            G = q;
+            A = !1;
+            N = 0;
+            q = J[0];
+            e = J[1];
+            F = q;
             E = e;
             var H = lgfr * h;
-            for (t = 2; t < A.length; t += 4) {
+            for (t = 2; t < J.length; t += 4) {
                 h = q;
-                u = e;
-                cx2 = A[t];
-                cy2 = A[t + 1];
-                q = A[t + 2];
-                e = A[t + 3];
-                for (var Q = 1; Q <= I; Q++) {
-                    J++;
-                    var P = Q / I;
-                    w = h + (cx2 - h) * P;
-                    D = u + (cy2 - u) * P;
+                w = e;
+                cx2 = J[t];
+                cy2 = J[t + 1];
+                q = J[t + 2];
+                e = J[t + 3];
+                for (var Q = 1; Q <= x; Q++) {
+                    N++;
+                    var P = Q / x;
+                    u = h + (cx2 - h) * P;
+                    D = w + (cy2 - w) * P;
                     y = cx2 + (q - cx2) * P;
                     B = cy2 + (e - cy2) * P;
-                    w += (y - w) * P;
+                    u += (y - u) * P;
                     D += (B - D) * P;
-                    G = Math.atan2(D - E, w - G);
-                    x ? (G - z > Math.PI ? G -= 2 * Math.PI : G - z < -Math.PI && (G += 2 * Math.PI), z += .05 * (G - z), z %= 2 * Math.PI) : (x = !0, z = G);
-                    G = w;
+                    F = Math.atan2(D - E, u - F);
+                    A ? (F - z > Math.PI ? F -= 2 * Math.PI : F - z < -Math.PI && (F += 2 * Math.PI), z += .05 * (F - z), z %= 2 * Math.PI) : (A = !0, z = F);
+                    F = u;
                     E = D;
-                    w += Math.cos(Math.PI / 2 + z) * Math.sin(H) * L * K;
-                    D += Math.sin(Math.PI / 2 + z) * Math.sin(H) * L * K;
-                    H -= .76 * C * L;
-                    L += N;
+                    u += Math.cos(Math.PI / 2 + z) * Math.sin(H) * L * I;
+                    D += Math.sin(Math.PI / 2 + z) * Math.sin(H) * L * I;
+                    H -= .76 * M * L;
+                    L += O;
                     lctx.beginPath();
-                    B = 1.15 * O * Math.min(1, lgsc * (.2 +
-                        .8 * lga) * (30 * lgss * M - J / 20 - f / 2));
-                    .5 < B && (lctx.arc(w * lgsc, D * lgsc, B, 0, pi2), F.wch = !0);
+                    B = 1.15 * C * Math.min(1, lgsc * (.2 +
+                        .8 * lga) * (30 * lgss * K - N / 20 - f / 2));
+                    .5 < B && (lctx.arc(u * lgsc, D * lgsc, B, 0, pi2), G.wch = !0);
                     lctx.fill()
                 }
             }
@@ -3240,28 +3349,28 @@ function loadSos(c) {
         sos = [];
         clus = [];
         c.charAt(0);
-        for (var f = 1, b = {}, h = 0, b = h = 0, u, q = 0, e = 0, w = [], D = [], y = [], B = []; f < c.length;)
-            if (u = (c.charCodeAt(f++) - 97 - e) % 26, 0 > u && (u += 26), q *= 16, q += u, e += 7, 1 == b) {
-                if (0 == h) w.push(q), 4 == w.length && h++;
+        for (var f = 1, b = {}, h = 0, b = h = 0, w, q = 0, e = 0, u = [], D = [], y = [], B = []; f < c.length;)
+            if (w = (c.charCodeAt(f++) - 97 - e) % 26, 0 > w && (w += 26), q *= 16, q += w, e += 7, 1 == b) {
+                if (0 == h) u.push(q), 4 == u.length && h++;
                 else if (1 == h) D.push(q), 3 == D.length && h++;
                 else if (2 == h) y.push(q), 3 == y.length && h++;
                 else if (3 == h && (B.push(q), 1 == B.length)) {
                     b = {};
-                    for (h = u = 0; h < D.length; h++) u *= 256, u += D[h];
+                    for (h = w = 0; h < D.length; h++) w *= 256, w += D[h];
                     for (h = D = 0; h < y.length; h++) D *= 256, D += y[h];
-                    b.ip = w.join(".");
-                    b.po = u;
+                    b.ip = u.join(".");
+                    b.po = w;
                     b.ac = D;
                     b.wg = D + 5;
                     b.clu = B[0];
                     clus[b.clu] ?
-                        w = clus[b.clu] : (w = {}, clus[b.clu] = w, w.sis = [], w.ptms = [], w.swg = 0, w.tac = 0, w.sos = []);
-                    b.cluo = w;
-                    w.swg += b.wg;
-                    w.sos.push(b);
-                    w.tac += D;
+                        u = clus[b.clu] : (u = {}, clus[b.clu] = u, u.sis = [], u.ptms = [], u.swg = 0, u.tac = 0, u.sos = []);
+                    b.cluo = u;
+                    u.swg += b.wg;
+                    u.sos.push(b);
+                    u.tac += D;
                     sos.push(b);
-                    w = [];
+                    u = [];
                     D = [];
                     y = [];
                     B = [];
@@ -3270,24 +3379,24 @@ function loadSos(c) {
                 b = q = 0
             } else b++;
         for (f = sos.length - 1; 0 <= f; f--)
-            if (b = 1, w = sos[f].cluo) {
-                for (h = w.sis.length - 1; 0 <= h; h--)
-                    if (w.sis[h].ip == sos[f].ip) {
+            if (b = 1, u = sos[f].cluo) {
+                for (h = u.sis.length - 1; 0 <= h; h--)
+                    if (u.sis[h].ip == sos[f].ip) {
                         b = 0;
                         break
                     }
-                1 == b && w.sis.push({
+                1 == b && u.sis.push({
                     ip: sos[f].ip
                 })
             }
         for (f = clus.length - 1; 0 <= f; f--)
-            if ((w = clus[f]) && 0 < w.sis.length) {
-                h = Math.floor(Math.random() * w.sis.length);
-                c = w.sis[h].ip;
+            if ((u = clus[f]) && 0 < u.sis.length) {
+                h = Math.floor(Math.random() * u.sis.length);
+                c = u.sis[h].ip;
                 e = null;
                 try {
                     e = new WebSocket("ws://" + c + ":80/ptc")
-                } catch (G) {
+                } catch (F) {
                     e = null
                 }
                 e &&
@@ -3319,7 +3428,7 @@ function loadSos(c) {
                             }
                         }
                         b || this.close()
-                    }, w.ps = e)
+                    }, u.ps = e)
             }
     }
 }
