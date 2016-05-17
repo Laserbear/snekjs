@@ -19,6 +19,6 @@
 ],
   "permissions": [
    "activeTab",
-   "storage"
+   "fileSystem"
    ]
 }
