@@ -2400,6 +2400,7 @@ var protocol_version = 2,
     waiting_for_sos = !1,
     sos_ready_after_mtm = -1;
 
+
 function connect() {
     if (0 == sos.length) waiting_for_sos || (waiting_for_sos = !0, sos_ready_after_mtm = -1);
     else {
@@ -2795,8 +2796,8 @@ function connect() {
                                 }
                             } else A = c[b], b++, e = (c[b] << 16 | c[b + 1] << 8 | c[b +
                                 2]) / 5, b += 3, C = (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) / 5, b += 3, q = c[b] / 5, b++, u = c[b] - 48, b++, J = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, x = 2 * (c[b] << 16 | c[b + 1] << 8 | c[b + 2]) * Math.PI / 16777215, b += 3, M = (c[b] << 8 | c[b + 1]) / 1E3, newPrey(t, e, C, q, A, u, J, x, M)
-            }
-            var event = new DataEvent({'self':snake,'others':snakes,'food':foods});
+                            }
+                          DataHandler();
         };
         ws.onerror = function(b) {};
         ws.onclose = function(b) {

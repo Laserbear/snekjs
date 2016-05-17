@@ -14,11 +14,10 @@
     "matches": [
       "http://slither.io/"
     ],
-    "js": ["content.js","all.js", "rl.js"]
+    "js": ["content.js","all.js"]
   }
 ],
   "permissions": [
-   "activeTab",
-   "fileSystem"
+   "activeTab"
    ]
 }
