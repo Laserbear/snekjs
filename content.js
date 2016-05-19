@@ -1,4 +1,3 @@
-//Removing scripts off page
 var xhr = new XMLHttpRequest,
     content,
     doc,
@@ -51,7 +50,12 @@ var spoofMouse = function(x1,y1,x2,y2) {
 //This handler runs everytime the client receives new snake/food data from the server.
 //The e variable runs in the format {self:foo,others:bar,food:foo}
 //--------------------------------------------------------------------------------------//
+var brain;
+
+
+
 var naive = function(){
+
   var min = Math.pow(snake['xx']-foods[0]['xx'],2) + Math.pow(snake['yy']-foods[0]['yy'],2);
   var index = 0;
   for(var i in foods){
@@ -66,15 +70,6 @@ var naive = function(){
       break;
   }
   spoofMouse(snake['xx'],snake['yy'],foods[index]['xx'],foods[index]['yy']);
+
 }
-var snek = function(){
-	var brain;
-	function new(){
-		brain = new RL.DQNAgent(env, spec)
-	}
-	function save(){} // implement saving and loading to json
-  function load(){}
-  function move(){} // make action based on data
-}
-var Agent = snek();
-var DataHandler = Agent.move();
+var DataHandler = naive;
