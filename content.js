@@ -52,7 +52,7 @@ var spoofMouse = function(x1,y1,x2,y2) {
 //--------------------------------------------------------------------------------------//
 var brain;
 var env = {}
-env.getNumStates = function() { return 8; } // need to concretely define state space, probably something like 24*2 + 3 = 51
+env.getNumStates = function() { return 51; } // need to concretely define dimensionality state space, probably something like 24*2 + 3 = 51
 env.getMaxNumActions = function() { return 24; } // number of actions = 360/15
 
 var spec = {}
@@ -65,8 +65,14 @@ spec.experience_add_every = 5; // number of time steps before we add another exp
 spec.experience_size = 10000; // size of experience
 spec.learning_steps_per_iteration = 5;
 spec.tderror_clamp = 1.0; // for robustness
-spec.num_hidden_units = 100 // number of neurons in hidden layer
+spec.num_hidden_units = 50 // number of neurons in hidden layer, somewhere between size of input and size of output
 
+function prepInputs(self, others, food){ //build out input array
+  // append distance to nearest snake in 24 equally spaced directions, if no visible snake set to arbitrarily large 10000
+  // append distance to nearest food in 24 equally spaced directions, if no visible food set to arbitrarily large 10000
+  // note: add fudge factor so points can be within 1 unit of line and still count
+  // append snake head x and y and direction
+}
 
 var naive = function(){
 
