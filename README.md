@@ -10,7 +10,7 @@ Clone this repository and load it into chrome as an unpacked extension
 ## Authors
 
 * **Christian Ng** 
-* **Artur Kashperskiiy**
+* **Artur Kashperskiy**
 * **Ryan Ozawa**
 
 ## License
