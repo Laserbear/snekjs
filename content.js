@@ -50,7 +50,6 @@ var spoofMouse = function(x1,y1,x2,y2) {
 //This handler runs everytime the client receives new snake/food data from the server.
 //The e variable runs in the format {self:foo,others:bar,food:foo}
 //--------------------------------------------------------------------------------------//
-var brain;
 var env = {}
 env.getNumStates = function() { return 51; } // need to concretely define dimensionality state space, probably something like 24*2 + 3 = 51
 env.getMaxNumActions = function() { return 24; } // number of actions = 360/15
@@ -67,11 +66,27 @@ spec.learning_steps_per_iteration = 5;
 spec.tderror_clamp = 1.0; // for robustness
 spec.num_hidden_units = 50 // number of neurons in hidden layer, somewhere between size of input and size of output
 
+var agent = new RL.DQNAgent(env,spec);
+
+
 function prepInputs(self, others, food){ //build out input array
   // append distance to nearest snake in 24 equally spaced directions, if no visible snake set to arbitrarily large 10000
   // append distance to nearest food in 24 equally spaced directions, if no visible food set to arbitrarily large 10000
   // note: add fudge factor so points can be within 1 unit of line and still count
   // append snake head x and y and direction
+}
+
+function save(){
+  chrome.storage.local.set({'agent': JSON.stringify(agent.toJSON())}, function() {
+          alert('Agent Saved');
+        });
+}
+function load(){ // pray it works
+  var agent_data = "";
+  chrome.storage.local.get('agent', function (result) {
+        agent_data = result.agent;
+    });
+  agent.fromJSON(agent_data);
 }
 
 var naive = function(){
@@ -92,4 +107,6 @@ var naive = function(){
   spoofMouse(snake['xx'],snake['yy'],foods[index]['xx'],foods[index]['yy']);
 
 }
+
 var DataHandler = naive;
+
