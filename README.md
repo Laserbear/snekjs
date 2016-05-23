@@ -11,7 +11,6 @@ Clone this repository and load it into chrome as an unpacked extension
 
 * **Christian Ng** 
 * **Artur Kashperskiy**
-* **Ryan Ozawa**
 
 ## License
 
