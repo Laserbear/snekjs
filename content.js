@@ -68,12 +68,32 @@ spec.num_hidden_units = 50 // number of neurons in hidden layer, somewhere betwe
 
 var agent = new RL.DQNAgent(env,spec);
 
+function calcDistance(){
+
+}
 
 function prepInputs(self, others, food){ //build out input array
   // append distance to nearest snake in 24 equally spaced directions, if no visible snake set to arbitrarily large 10000
   // append distance to nearest food in 24 equally spaced directions, if no visible food set to arbitrarily large 10000
   // note: add fudge factor so points can be within 1 unit of line and still count
   // append snake head x and y and direction
+  var snakedists = [];
+  var fooddists = [];
+  var default_dist = 100000;
+  var x,y = 0;
+  for(i = 0; i <= 12; i++){
+    for(j = 0; j <= 50; j++){
+      x = j * Math.cos(i*Math.PI);
+      y = j * Math.sin(i*Math.PI);
+      for(snake in others){
+        
+      }
+      for(food in food){
+
+      }
+
+    }
+  }
 }
 
 function save(){
