@@ -72,28 +72,39 @@ function calcDistance(){
 
 }
 
-function prepInputs(self, others, food){ //build out input array
-  // append distance to nearest snake in 24 equally spaced directions, if no visible snake set to arbitrarily large 10000
-  // append distance to nearest food in 24 equally spaced directions, if no visible food set to arbitrarily large 10000
-  // note: add fudge factor so points can be within 1 unit of line and still count
-  // append snake head x and y and direction
-  var snakedists = [];
-  var fooddists = [];
-  var default_dist = 100000;
-  var x,y = 0;
-  for(i = 0; i <= 12; i++){
-    for(j = 0; j <= 50; j++){
-      x = j * Math.cos(i*Math.PI);
-      y = j * Math.sin(i*Math.PI);
-      for(snake in others){
-        
-      }
-      for(food in food){
+function prepInputs(self, others, food){
+var snekDist = [],
+    foodDist = [],
+    headDir = [];
 
+    for(var i = 0; i <= 24; i++){
+       var opp = Math.tan(15 * i);
+  var view = new THREE.Vector3(1, opp, 0);
+  for(var s = 0; s <=  1000; s++){
+    view.multiplyScalar(10);
+    if((view.x == food.x || view.x == food.x + 1 || view.x == food.x - 1)){
+      if((view.y == food.y || view.y == food.y + 1 || view.y == food.y - 1)){
+        foodDist.push(Math.sqrt(Math.pow(food.x, 2) + Math.pow(food.y, 2)));
       }
-
+    else{
+      foodDist.push(10000);
     }
-  }
+    }
+    else{
+      foodDist.push(10000);
+    }
+    for(var j = 0; j < others.length; j++){
+      
+    if(view.x == others[j].x || view.x == others[j].x + 1 || view.x == others[j].x - 1){
+      if((view.y == others[j].y || view.y == others[j].y + 1 || view.y == others[j].y - 1)){
+      snekDist.push(Math.sqrt(Math.pow(others[j].x, 2) + Math.pow(others[j].x, 2)));
+      }
+    }
+      
+    }//last for
+  } //second for
+  }//first for
+  return [snekDist, foodDist, headDir];
 }
 
 function save(){
