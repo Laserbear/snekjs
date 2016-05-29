@@ -67,12 +67,26 @@ spec.tderror_clamp = 1.0; // for robustness
 spec.num_hidden_units = 50 // number of neurons in hidden layer, somewhere between size of input and size of output
 
 var agent = new RL.DQNAgent(env,spec);
+// reward = length - old length
+var reward;
+var action;
+var actions = [];
+for(i = 0; i++; i<24){
+  actions.push(i*15);
+}
+setInterval(function(){
+// Action spoof calculation
 
-function calcDistance(){
+  action = agent.act(s);
+  reward = self['pts'].length - old_length;
+  agent.learn(reward);
+},0);
+function performAction(direction){
 
 }
 
-function prepInputs(self, others, food){
+// make prepInputs modify global namespace variables
+function prepInputs(self, others, food){ //add length of self to inputs
 var snekDist = [],
     foodDist = [],
     headDir = [];
