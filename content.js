@@ -66,6 +66,9 @@ spec.learning_steps_per_iteration = 5;
 spec.tderror_clamp = 1.0; // for robustness
 spec.num_hidden_units = 50 // number of neurons in hidden layer, somewhere between size of input and size of output
 
+
+var input_array = [];
+
 var agent = new RL.DQNAgent(env,spec);
 // reward = length - old length
 var reward;
@@ -74,10 +77,10 @@ var actions = [];
 for(i = 0; i++; i<24){
   actions.push(i*15);
 }
-setInterval(function(){
+setInterval(function(){ // 
 // Action spoof calculation
-
-  action = agent.act(s);
+  
+  action = agent.act(input_array);
   performAction(actions[s]);
   reward = self['pts'].length - old_length;
   agent.learn(reward);
@@ -127,6 +130,15 @@ var snekDist = [],
   } //second for
   }//first for
   return [snekDist, foodDist, headDir];
+  for snek in snekDist{
+    input_array.push(snek);
+  }
+  for food in foodDist{
+    input_array.push(food);
+  }
+  for dir in headDir{
+    input_array.push(dir);
+  }
 }
 
 function save(){
