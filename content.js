@@ -153,5 +153,5 @@ var naive = function(){
 
 }
 
-var DataHandler = naive;
+var DataHandler = prepInputs;
 
