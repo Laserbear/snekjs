@@ -81,8 +81,15 @@ setInterval(function(){
   reward = self['pts'].length - old_length;
   agent.learn(reward);
 },0);
-function performAction(direction){
-
+function performAction(direction){ // instead of using 15 here, we could swap in a velocity magnitude
+  x = 15 * Math.cos(direction)
+  y = 15 * Math.sin(direction)
+  var event = new MouseEvent('yo', {
+    'view': window,
+    'clientX':x,
+    'clientY':y
+  });
+  window.onmousemove(event)
 }
 
 // make prepInputs modify global namespace variables
