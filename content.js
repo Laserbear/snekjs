@@ -44,10 +44,6 @@ var spoofMouse = function(x1, y1, x2, y2) {
 
 }
 
-//---------------------------------------------------------------------------------------//
-//This handler runs everytime the client receives new snake/food data from the server.
-//The e variable runs in the format {self:foo,others:bar,food:foo}
-//--------------------------------------------------------------------------------------//
 var env = {}
 env.getNumStates = function() {
     return 51;
@@ -58,7 +54,7 @@ env.getMaxNumActions = function() {
 
 var spec = {}
   // Hyper parameters! These will be tweaked
-spec.update = 'qlearn'; // can be either 'qlearn' or 'sarsa'
+spec.update = 'sarsa'; // can be either 'qlearn' or 'sarsa'
 spec.gamma = 0.9; // time discount factor, [0, 1)
 spec.epsilon = 0.2; // initial epsilon for epsilon-greedy policy, [0, 1)
 spec.alpha = 0.005; // value function learning rate
