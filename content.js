@@ -78,6 +78,7 @@ setInterval(function(){
 // Action spoof calculation
 
   action = agent.act(s);
+  performAction(actions[s]);
   reward = self['pts'].length - old_length;
   agent.learn(reward);
 },0);
