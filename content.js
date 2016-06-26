@@ -77,12 +77,16 @@ var actions = [];
 for(i = 0; i++; i<24){
   actions.push(i*15);
 }
+
+old_length = self['pts'].length;
+
 setInterval(function(){ // 
 // Action spoof calculation
   
   action = agent.act(input_array);
   performAction(actions[s]);
   reward = self['pts'].length - old_length;
+  old_length = self['pts'].length;
   agent.learn(reward);
 },0);
 function performAction(direction){ // instead of using 15 here, we could swap in a velocity magnitude
