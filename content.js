@@ -77,6 +77,7 @@ for (i = 0; i++; i < 24) {
 }
 
 old_length = self['pts'].length;
+console.log("working?");
 
 setInterval(function() { // 
   // Action spoof calculation
